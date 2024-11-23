@@ -1,0 +1,22 @@
+[
+  {
+    "image": "/svg/icon-card.svg",
+    "text": "Pague em até 10x sem juros*"
+  },
+  {
+    "image": "/svg/icon-frete.svg",
+    "text": "Retire grátis em nossas lojas"
+  },
+  {
+    "image": "/svg/icon-discount.svg",
+    "text": "Ganhe 20% de desconto*"
+  },
+  {
+    "image": "/svg/icon-package.svg",
+    "text": "Frete grátis para regiões do sul e sudeste*"
+  },
+  {
+    "image": "/svg/icon-troca.svg",
+    "text": "Primeira troca grátis"
+  }
+]

@@ -1,0 +1,1 @@
+export { BannerShoes } from "./BannerShoes"

@@ -33,6 +33,8 @@ export default {
         linearButtonHover:
           "linear-gradient(286deg, #F99500 12.04%, #FFCD29 84.77%)",
         bgBanner: "url('/img/bg-banner.png')",
+        bgWomanShoes: "url('/img/image-woman-shoes.png')",
+        bgManShoes: "url('/img/image-man-shoes.png')",
       },
       fontFamily: {
         poppins: ["var(--font-poppins)", "sans-serif"],

@@ -2,7 +2,7 @@ import Link from "next/link"
 import { tv } from "tailwind-variants"
 
 const button = tv({
-  base: "text-light font-poppins text-lg bg-linearButton uppercase rounded-sm hover:bg-linearButtonHover",
+  base: "text-light block max-w-[257px] font-poppins text-lg bg-linearButton uppercase rounded-sm hover:bg-linearButtonHover",
   variants: {
     size: {
       sm: "",
