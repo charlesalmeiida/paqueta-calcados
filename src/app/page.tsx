@@ -1,11 +1,21 @@
 import { BannerShoes } from "@/components/BannerShoes"
 import { ItemBenefit } from "@/components/Benefits"
+import { BtnNumberShoes } from "@/components/BtnNumberShoes"
 import { Button } from "@/components/Button"
 import { Container } from "@/components/Container"
 import { Header } from "@/components/Header"
 import itemsBenefit from "@/data/itemsBenefit.json"
+import Image from "next/image"
+import numberShoes from "@/data/numberShoes.json"
+import Link from "next/link"
+import { ItemCard } from "@/components/ItemCard"
+import { BrandLogos } from "@/components/BrandLogos"
+import { InputForm } from "@/components/InputForm"
 
-export default function Home() {
+export default async function Home() {
+  const data = await fetch("https://api.brchallenges.com/api/paqueta/shoes")
+  const products = await data.json()
+
   return (
     <>
       <Header />
@@ -76,6 +86,91 @@ export default function Home() {
               para o dia a dia, trabalho e até mesmo para praticar esportes!
             </BannerShoes>
             <div className="w-[1314px] h-px bg-secondaryLight opacity-15"></div>
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container>
+          <div className="flex items-end justify-between">
+            <Image
+              src={"/img/logo-outlet.png"}
+              width={398}
+              height={154}
+              alt="Logo Paquetá Calçados Outlet"
+            />
+            <p className="text-secondaryLight mb-8 font-montserrat text-[22px] leading-9 text-right max-w-xl">
+              Você também pode escolher o seu novo sapato favorito de acordo com
+              a sua numeração.
+            </p>
+          </div>
+          <div className="mt-20 flex justify-between">
+            {numberShoes.map((item) => (
+              <BtnNumberShoes key={item.id}>{item.number}</BtnNumberShoes>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-28">
+        <Container>
+          <div>
+            <div className="flex items-end justify-between">
+              <h2 className="text-secondary font-montserrat text-[34px] font-semibold">
+                DESTAQUES
+              </h2>
+              <Link
+                className="text-secondary font-montserrat text-lg border-b border-primary hover:border-primaryLight hover:text-secondary"
+                href={"/"}
+              >
+                CONFERIR TUDO
+              </Link>
+            </div>
+            <div className="mt-9 gap-10 flex">
+              <ItemCard
+                name={products[0].name}
+                soldout={products[0].soldout === true ? true : false}
+                image={products[0].image}
+              />
+              <ItemCard
+                name={products[1].name}
+                image={products[1].image}
+                soldout={products[1].soldout === true ? true : false}
+              />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="pb-48">
+        <Container>
+          <div className="space-y-20">
+            <div>
+              <h2 className="text-[34px] font-montserrat font-semibold text-secondary">
+                AS MELHORES MARCAS ESTÃO AQUI!
+              </h2>
+            </div>
+            <div>
+              <BrandLogos />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-linear">
+        <Container>
+          <div className="flex items-center justify-around">
+            <div className="py-16">
+              <h3 className="font-montserrat text-[34px] font-bold text-light leading-[140%] max-w-[459px]">
+                SEJA O PRIMEIRO A RECEBER NOSSAS OFERTAS E NOVIDADES EXCLUSIVAS!
+              </h3>
+            </div>
+            <div>
+              <span className="text-light text-xl font-medium font-poppins">
+                Nos informe o seu e-mail e nome para o melhor atendimento!
+              </span>
+              <InputForm />
+            </div>
           </div>
         </Container>
       </section>

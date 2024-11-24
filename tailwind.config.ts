@@ -11,6 +11,9 @@ export default {
       borderRadius: {
         sm: "3px",
       },
+      boxShadow: {
+        shadowShape: "0px 4px 21px 0px rgba(0, 0, 0, 0.10)",
+      },
       colors: {
         primary: "#F57002",
         primaryLight: "#FF8A29",

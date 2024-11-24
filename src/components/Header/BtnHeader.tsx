@@ -29,7 +29,7 @@ export function BtnHeader({ type }: BtnHeaderProps) {
             : ""
         }
       />
-      <span className="font-poppins text-sm text-secondaryLight hover:text-primary">
+      <span className="font-poppins text-sm transition-all text-secondaryLight hover:text-primary">
         {type === "list"
           ? "Lista de desejos"
           : type === "cart"
