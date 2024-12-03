@@ -8,9 +8,10 @@ interface ItemCardProps {
   soldout: boolean
   image: string
   name: string
+  value: number
 }
 
-export function ItemCard({ soldout, image, name }: ItemCardProps) {
+export function ItemCard({ soldout, image, name, value }: ItemCardProps) {
   const [isFavItem, setIsFavItem] = useState(false)
 
   const FavItemHandler = () => {
@@ -18,7 +19,7 @@ export function ItemCard({ soldout, image, name }: ItemCardProps) {
   }
 
   return (
-    <button className="bg-light max-w-[307px] text-left w-full rounded-sm relative shadow-shadowShape">
+    <div className="bg-light cursor-pointer max-w-[307px] h-[412px] text-left w-full rounded-sm relative shadow-shadowShape">
       {soldout && (
         <div className="bg-primaryDark top-0 w-full absolute">
           <h5 className="text-center py-2 text-light text-sm font-poppins font-bold">
@@ -53,6 +54,7 @@ export function ItemCard({ soldout, image, name }: ItemCardProps) {
             width={198}
             height={159}
             alt="Imagem de um sapato"
+            className="max-w-[198px] -mt-5 max-h-[159px]"
           />
           <h4 className="font-montserrat uppercase text-secondary font-medium text-sm mt-6">
             {name}
@@ -60,7 +62,7 @@ export function ItemCard({ soldout, image, name }: ItemCardProps) {
         </div>
         <div>
           <strong className="font-montserrat text-secondary text-xl font-bold mt-3 block">
-            R$ 149,99
+            R$ {value}
           </strong>
           <span className="text-secondaryLight text-xs opacity-60 font-montserrat">
             OU 9X R$ 16,66
@@ -70,6 +72,6 @@ export function ItemCard({ soldout, image, name }: ItemCardProps) {
           {soldout ? "ME AVISE QUANDO CHEGAR" : "COMPRAR"}
         </Button>
       </div>
-    </button>
+    </div>
   )
 }

@@ -8,14 +8,11 @@ import itemsBenefit from "@/data/itemsBenefit.json"
 import Image from "next/image"
 import numberShoes from "@/data/numberShoes.json"
 import Link from "next/link"
-import { ItemCard } from "@/components/ItemCard"
 import { BrandLogos } from "@/components/BrandLogos"
-import { InputForm } from "@/components/InputForm"
+import { InputCheckbox, InputForm } from "@/components/InputForm"
+import { CarouselProducts } from "@/components/CarouselProducts"
 
-export default async function Home() {
-  const data = await fetch("https://api.brchallenges.com/api/paqueta/shoes")
-  const products = await data.json()
-
+export default function Home() {
   return (
     <>
       <Header />
@@ -126,18 +123,9 @@ export default async function Home() {
                 CONFERIR TUDO
               </Link>
             </div>
-            <div className="mt-9 gap-10 flex">
-              <ItemCard
-                name={products[0].name}
-                soldout={products[0].soldout === true ? true : false}
-                image={products[0].image}
-              />
-              <ItemCard
-                name={products[1].name}
-                image={products[1].image}
-                soldout={products[1].soldout === true ? true : false}
-              />
-            </div>
+          </div>
+          <div>
+            <CarouselProducts />
           </div>
         </Container>
       </section>
@@ -159,17 +147,37 @@ export default async function Home() {
 
       <section className="bg-linear">
         <Container>
-          <div className="flex items-center justify-around">
-            <div className="py-16">
+          <div className="flex py-16 items-center justify-between relative">
+            <Image
+              src={"/svg/arrow.svg"}
+              width={172}
+              height={149}
+              alt="Ícone de flecha"
+              className="absolute left-[490px] top-40"
+            />
+            <div>
               <h3 className="font-montserrat text-[34px] font-bold text-light leading-[140%] max-w-[459px]">
                 SEJA O PRIMEIRO A RECEBER NOSSAS OFERTAS E NOVIDADES EXCLUSIVAS!
               </h3>
             </div>
-            <div>
+            <div className="flex flex-col gap-10">
               <span className="text-light text-xl font-medium font-poppins">
                 Nos informe o seu e-mail e nome para o melhor atendimento!
               </span>
-              <InputForm />
+              <div className="flex items-center gap-6 w-full">
+                <InputForm type="email" />
+                <InputForm type="name" />
+              </div>
+              <div className="flex items-center gap-10">
+                <span className="text-light text-lg font-medium font-poppins">
+                  Tenho interesse na categoria:
+                </span>
+                <div className="flex items-center gap-8">
+                  <InputCheckbox>Masculina</InputCheckbox>
+                  <InputCheckbox>Feminina</InputCheckbox>
+                </div>
+              </div>
+              <Button>QUERO RECEBER</Button>
             </div>
           </div>
         </Container>
