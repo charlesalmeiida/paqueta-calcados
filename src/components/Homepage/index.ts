@@ -1,0 +1,6 @@
+export { Hero } from "./Hero"
+export { BannerShoes } from "./BannerShoes"
+export { BtnNumberShoes } from "./BtnNumberShoes"
+export { CarouselProducts } from "./CarouselProducts"
+export { BrandLogos } from "./BrandLogos"
+export { ItemBenefit } from "./ItemBenefit"

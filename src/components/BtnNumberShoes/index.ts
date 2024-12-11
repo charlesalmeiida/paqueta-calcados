@@ -1,1 +1,0 @@
-export { BtnNumberShoes } from "./BtnNumberShoes"

@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Institucional",
+    "links": [
+      "Quem Somos",
+      "Nossas Lojas",
+      "Soluções Corporativas",
+      "Política de Privacidade",
+      "Contrato de Compra e Venda",
+      "Crédito Pessoal"
+    ]
+  },
+  {
+    "name": "Ajuda e suporte",
+    "links": [
+      "Troca e Devolução",
+      "2ª Via do Boleto",
+      "Detalhamento de Fatura",
+      "Entregas",
+      "Meus Pedidos",
+      "Dúvidas Frequentes",
+      "Status do Pedido"
+    ]
+  },
+  {
+    "name": "Atendimento",
+    "links": ["Fale conosco"]
+  },
+  {
+    "name": "Endereço",
+    "links": [
+      "Rua Antonio Frederico Ozanan, 2601 Canoas - RS | CNPJ: 01.098.983/0175-02"
+    ]
+  },
+  {
+    "name": "Trabalhe Conosco",
+    "links": ["Venha crescer com a Paquetá!"]
+  }
+]
