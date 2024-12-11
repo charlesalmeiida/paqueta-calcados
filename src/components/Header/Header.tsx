@@ -4,6 +4,8 @@ import { Topbar } from "./Topbar"
 import Link from "next/link"
 import linksNav from "@/data/linksNav.json"
 import { BtnFavorites } from "./components/BtnFavorites"
+import { BtnCart } from "./components/BtnCart"
+import { BtnLogin } from "./components/BtnLogin"
 
 export function Header() {
   return (
@@ -22,6 +24,8 @@ export function Header() {
             </Link>
             <div className="flex gap-10">
               <BtnFavorites />
+              <BtnCart />
+              <BtnLogin />
             </div>
           </div>
           <nav>

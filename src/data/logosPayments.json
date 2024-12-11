@@ -1,0 +1,47 @@
+[
+  {
+    "image": "/svg/logos/logo-mastercard.svg",
+    "width": 51,
+    "height": 31
+  },
+  {
+    "image": "/svg/logos/logo-american-express.svg",
+    "width": 56,
+    "height": 22
+  },
+  {
+    "image": "/svg/logos/logo-elo.svg",
+    "width": 42,
+    "height": 16
+  },
+  {
+    "image": "/svg/logos/logo-paqueta.svg",
+    "width": 58,
+    "height": 17
+  },
+  {
+    "image": "/svg/logos/logo-gaston.svg",
+    "width": 51,
+    "height": 12
+  },
+  {
+    "image": "/svg/logos/logo-visa.svg",
+    "width": 45,
+    "height": 16
+  },
+  {
+    "image": "/svg/logos/logo-hiper.svg",
+    "width": 48,
+    "height": 21
+  },
+  {
+    "image": "/svg/logos/logo-itau.svg",
+    "width": 33,
+    "height": 33
+  },
+  {
+    "image": "/svg/logos/logo-boleto.svg",
+    "width": 33,
+    "height": 32
+  }
+]

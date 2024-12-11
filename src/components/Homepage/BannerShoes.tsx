@@ -30,7 +30,7 @@ export function BannerShoes({ gender, direction, children }: BannerShoesProps) {
       </div>
       <div
         className={`mt-40 space-y-14 flex flex-col ${
-          direction === "left" ? "items-end" : "items-start"
+          direction === "left" ? "items-end text-right" : "items-start"
         }`}
       >
         <p className="font-montserrat text-[22px] leading-9 text-secondaryLight max-w-[628px]">

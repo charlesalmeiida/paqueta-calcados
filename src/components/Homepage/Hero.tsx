@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <main>
       <section className="bg-bgBanner bg-no-repeat bg-center bg-cover object-cover">
-        <div className="py-32 space-y-6 w-full flex flex-col items-end pr-56">
+        <div className="py-40 space-y-6 w-full flex flex-col items-end pr-56">
           <div>
             <div>
               <h1 className="font-poppins text-secondaryLight">Tênis Casual</h1>
