@@ -1,14 +1,5 @@
 import { create } from "zustand"
-
-type ItemStore = {
-  id: number
-  name: string
-  image: string
-  soldout: boolean
-  price: {
-    value: number
-  }
-}
+import { ItemStore } from "./itemStore"
 
 type Cart = {
   cart: ItemStore[]

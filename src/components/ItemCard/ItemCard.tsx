@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { AddToCart } from "../Button/AddToCart"
 import { ItemStore } from "@/store/itemStore"
+import { useFavItemStore } from "@/store/itemFavStore"
 
 interface ItemCardProps {
   soldout: boolean
@@ -21,6 +22,9 @@ export function ItemCard({
   addToCart,
   product,
 }: ItemCardProps) {
+  const isItemFav = useFavItemStore((state) => state.isFavorite(product.id))
+  const setFavItem = useFavItemStore((state) => state.addToFavorites)
+
   return (
     <div className="bg-light cursor-pointer max-w-[307px] h-[412px] text-left w-full rounded-sm relative shadow-shadowShape">
       {soldout && (
@@ -31,16 +35,10 @@ export function ItemCard({
         </div>
       )}
       <button
+        onClick={() => setFavItem(product)}
         className="flex w-full justify-end mt-2 pt-10 pr-8"
-        onClick={() => {}}
       >
-        <Image
-          src={"/svg/icon-fav.svg"}
-          width={24}
-          height={24}
-          alt="Imagem de um coracao preto"
-        />
-        {/* {isFavItem ? (
+        {isItemFav ? (
           <Image
             src={"/svg/icon-fav-fill.svg"}
             width={24}
@@ -54,7 +52,7 @@ export function ItemCard({
             height={24}
             alt="Imagem de um coracao branco"
           />
-        )} */}
+        )}
       </button>
       <div className="space-y-3 px-6 pb-6">
         <div>

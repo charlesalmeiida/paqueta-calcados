@@ -11,7 +11,7 @@ export type ItemStore = {
   }
 }
 
-type Products = {
+export type Products = {
   availableItems: ItemStore[]
   fetchAvailableItems: () => Promise<void>
 }

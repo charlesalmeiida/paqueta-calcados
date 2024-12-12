@@ -14,7 +14,6 @@ export function CarouselProducts() {
   const fetchAvailableItems = useItemStore((state) => state.fetchAvailableItems)
   const addToCart = useCartStore((state) => state.addToCart)
 
-  // Chama a API para buscar os produtos ao montar o componente
   useEffect(() => {
     fetchAvailableItems()
   }, [fetchAvailableItems])
