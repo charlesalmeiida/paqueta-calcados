@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { tv } from "tailwind-variants"
 
 const button = tv({
@@ -26,9 +25,5 @@ export function Button({
   size = "base",
   type = "primary",
 }: ButtonProps) {
-  return (
-    <Link className={button({ size, type })} href={"/"}>
-      {children}
-    </Link>
-  )
+  return <button className={button({ size, type })}>{children}</button>
 }

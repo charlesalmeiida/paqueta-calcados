@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import { Container } from "../Container"
 import { Topbar } from "./Topbar"
@@ -6,13 +8,29 @@ import linksNav from "@/data/linksNav.json"
 import { BtnFavorites } from "./components/BtnFavorites"
 import { BtnCart } from "./components/BtnCart"
 import { BtnLogin } from "./components/BtnLogin"
+import { useEffect, useState } from "react"
 
 export function Header() {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY >= 80)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
-    <header>
+    <>
       <Topbar />
-      <Container>
-        <div>
+      <header
+        className={`sticky top-0 z-50 bg-light ${
+          isScrolled ? "shadow-shadowShape" : ""
+        }`}
+      >
+        <Container>
           <div className="flex pt-4 items-center justify-between">
             <Link className="-ml-4" href={"/"}>
               <Image
@@ -42,8 +60,8 @@ export function Header() {
               ))}
             </ul>
           </nav>
-        </div>
-      </Container>
-    </header>
+        </Container>
+      </header>
+    </>
   )
 }

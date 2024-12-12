@@ -82,7 +82,7 @@ export function Footer() {
           </div>
         </div>
       </Container>
-      <div className="bg-secondaryLight mt-28 py-10 flex items-center justify-center gap-7">
+      <div className="bg-secondaryLight mt-20 py-10 flex items-center justify-center gap-7">
         <h5 className="font-montserrat text-xl font-medium text-light">
           UMA EMPRESA DO GRUPO
         </h5>

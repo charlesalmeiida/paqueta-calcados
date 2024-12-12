@@ -1,23 +1,26 @@
 "use client"
 
 import Image from "next/image"
-import { Button } from "../Button"
-import { useState } from "react"
+import { AddToCart } from "../Button/AddToCart"
+import { ItemStore } from "@/store/itemStore"
 
 interface ItemCardProps {
   soldout: boolean
   image: string
   name: string
   value: number
+  addToCart: (item: ItemStore) => void
+  product: ItemStore
 }
 
-export function ItemCard({ soldout, image, name, value }: ItemCardProps) {
-  const [isFavItem, setIsFavItem] = useState(false)
-
-  const FavItemHandler = () => {
-    setIsFavItem(!isFavItem)
-  }
-
+export function ItemCard({
+  soldout,
+  image,
+  name,
+  value,
+  addToCart,
+  product,
+}: ItemCardProps) {
   return (
     <div className="bg-light cursor-pointer max-w-[307px] h-[412px] text-left w-full rounded-sm relative shadow-shadowShape">
       {soldout && (
@@ -28,10 +31,16 @@ export function ItemCard({ soldout, image, name, value }: ItemCardProps) {
         </div>
       )}
       <button
-        onClick={FavItemHandler}
         className="flex w-full justify-end mt-2 pt-10 pr-8"
+        onClick={() => {}}
       >
-        {isFavItem ? (
+        <Image
+          src={"/svg/icon-fav.svg"}
+          width={24}
+          height={24}
+          alt="Imagem de um coracao preto"
+        />
+        {/* {isFavItem ? (
           <Image
             src={"/svg/icon-fav-fill.svg"}
             width={24}
@@ -45,7 +54,7 @@ export function ItemCard({ soldout, image, name, value }: ItemCardProps) {
             height={24}
             alt="Imagem de um coracao branco"
           />
-        )}
+        )} */}
       </button>
       <div className="space-y-3 px-6 pb-6">
         <div>
@@ -68,9 +77,9 @@ export function ItemCard({ soldout, image, name, value }: ItemCardProps) {
             OU 9X R$ 16,66
           </span>
         </div>
-        <Button type={soldout ? "soldOut" : "primary"}>
+        <AddToCart product={product} soldout={soldout} addToCart={addToCart}>
           {soldout ? "ME AVISE QUANDO CHEGAR" : "COMPRAR"}
-        </Button>
+        </AddToCart>
       </div>
     </div>
   )

@@ -4,30 +4,20 @@ import { ItemCard } from "../ItemCard"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/pagination"
-import { useEffect, useState } from "react"
 import { Pagination } from "swiper/modules"
-
-interface Products {
-  id: number
-  name: string
-  image: string
-  soldout: boolean
-  price: {
-    value: number
-  }
-}
+import { useItemStore } from "@/store/itemStore"
+import { useEffect } from "react"
+import { useCartStore } from "@/store/cartStore"
 
 export function CarouselProducts() {
-  const [products, setProducts] = useState<Products[]>([])
+  const items = useItemStore((state) => state.availableItems)
+  const fetchAvailableItems = useItemStore((state) => state.fetchAvailableItems)
+  const addToCart = useCartStore((state) => state.addToCart)
 
+  // Chama a API para buscar os produtos ao montar o componente
   useEffect(() => {
-    async function fetchProducts() {
-      const res = await fetch("https://api.brchallenges.com/api/paqueta/shoes")
-      const data = await res.json()
-      setProducts(data)
-    }
-    fetchProducts()
-  }, [])
+    fetchAvailableItems()
+  }, [fetchAvailableItems])
 
   return (
     <div>
@@ -42,13 +32,15 @@ export function CarouselProducts() {
           modules={[Pagination]}
           className="mySwiper"
         >
-          {products.slice(0, 8).map((product: Products) => (
+          {items.slice(0, 8).map((product) => (
             <SwiperSlide key={product.id}>
               <ItemCard
                 name={product.name}
                 image={product.image}
                 soldout={product.soldout}
                 value={product.price.value}
+                addToCart={addToCart}
+                product={product}
               />
             </SwiperSlide>
           ))}
