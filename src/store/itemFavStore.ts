@@ -4,8 +4,8 @@ import { ItemStore } from "./itemStore"
 type FavItem = {
   itemsFav: ItemStore[]
   addToFavorites: (item: ItemStore) => void
-  removeFromFavorites: (id: number) => void
-  isFavorite: (id: number) => boolean
+  removeFromFavorites: (id: string) => void
+  isFavorite: (id: string) => boolean
 }
 
 export const useFavItemStore = create<FavItem>((set, get) => ({

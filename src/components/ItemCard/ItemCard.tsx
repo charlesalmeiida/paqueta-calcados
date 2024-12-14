@@ -1,17 +1,17 @@
 "use client"
 
 import Image from "next/image"
-import { AddToCart } from "../Button/AddToCart"
+import { Button } from "../Button"
+import { AddToFavorites } from "../BtnAddFavorites"
 import { ItemStore } from "@/store/itemStore"
-import { useFavItemStore } from "@/store/itemFavStore"
 
 interface ItemCardProps {
+  product: ItemStore
   soldout: boolean
   image: string
   name: string
   value: number
-  addToCart: (item: ItemStore) => void
-  product: ItemStore
+  link: string
 }
 
 export function ItemCard({
@@ -19,12 +19,9 @@ export function ItemCard({
   image,
   name,
   value,
-  addToCart,
+  link,
   product,
 }: ItemCardProps) {
-  const isItemFav = useFavItemStore((state) => state.isFavorite(product.id))
-  const setFavItem = useFavItemStore((state) => state.addToFavorites)
-
   return (
     <div className="bg-light cursor-pointer max-w-[307px] h-[412px] text-left w-full rounded-sm relative shadow-shadowShape">
       {soldout && (
@@ -34,26 +31,7 @@ export function ItemCard({
           </h5>
         </div>
       )}
-      <button
-        onClick={() => setFavItem(product)}
-        className="flex w-full justify-end mt-2 pt-10 pr-8"
-      >
-        {isItemFav ? (
-          <Image
-            src={"/svg/icon-fav-fill.svg"}
-            width={24}
-            height={24}
-            alt="Imagem de um coracao preto"
-          />
-        ) : (
-          <Image
-            src={"/svg/icon-fav.svg"}
-            width={24}
-            height={24}
-            alt="Imagem de um coracao branco"
-          />
-        )}
-      </button>
+      <AddToFavorites product={product} />
       <div className="space-y-3 px-6 pb-6">
         <div>
           <Image
@@ -75,9 +53,9 @@ export function ItemCard({
             OU 9X R$ 16,66
           </span>
         </div>
-        <AddToCart product={product} soldout={soldout} addToCart={addToCart}>
+        <Button href={link} type={soldout ? "soldOut" : "primary"}>
           {soldout ? "ME AVISE QUANDO CHEGAR" : "COMPRAR"}
-        </AddToCart>
+        </Button>
       </div>
     </div>
   )

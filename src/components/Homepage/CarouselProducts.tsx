@@ -7,12 +7,10 @@ import "swiper/css/pagination"
 import { Pagination } from "swiper/modules"
 import { useItemStore } from "@/store/itemStore"
 import { useEffect } from "react"
-import { useCartStore } from "@/store/cartStore"
 
 export function CarouselProducts() {
   const items = useItemStore((state) => state.availableItems)
   const fetchAvailableItems = useItemStore((state) => state.fetchAvailableItems)
-  const addToCart = useCartStore((state) => state.addToCart)
 
   useEffect(() => {
     fetchAvailableItems()
@@ -38,8 +36,10 @@ export function CarouselProducts() {
                 image={product.image}
                 soldout={product.soldout}
                 value={product.price.value}
-                addToCart={addToCart}
                 product={product}
+                link={`/produto/${product.name
+                  .toLowerCase()
+                  .replace(/ /g, "-")}?id=${product.id}`}
               />
             </SwiperSlide>
           ))}

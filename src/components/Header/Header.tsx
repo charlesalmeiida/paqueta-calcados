@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Container } from "../Container"
-import { Topbar } from "./Topbar"
+import { Topbar } from "./components/Topbar"
 import Link from "next/link"
 import linksNav from "@/data/linksNav.json"
 import { BtnFavorites } from "./components/BtnFavorites"

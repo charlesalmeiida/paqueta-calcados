@@ -2,7 +2,7 @@ import { create } from "zustand"
 import { api } from "@/services/api"
 
 export type ItemStore = {
-  id: number
+  id: string
   name: string
   image: string
   soldout: boolean
