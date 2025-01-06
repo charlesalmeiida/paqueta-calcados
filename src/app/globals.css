@@ -2,20 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Poppins", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+h1 {
+  font-size: 80px;
+  font-weight: 600;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+h2 {
+  font-size: 60px;
+}
+
+h3 {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+h5 {
+  font-size: 22px;
+  line-height: 36px;
+}
+
+h6 {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 700;
 }

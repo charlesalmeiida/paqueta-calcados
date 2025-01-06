@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
 export default {
   content: [
@@ -7,12 +7,33 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      poppins: ["var(--font-poppins)", "sans-serif"],
+      montserrat: ["var(--font-montserrat)", "sans-serif"],
+    },
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
+    container: {
+      center: true,
+      padding: "16px",
+    },
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        light: "#fff",
+        gray01: "#383838",
+        gray: "#121212",
+        primary01: "#CF5D00",
+      },
+      backgroundImage: {
+        linear01: "linear-gradient(92deg, #FF8A29 31.2%, #CF5D00 71.97%)",
+        linear02: "linear-gradient(123deg, #F99500 53.34%, #FFCD29 133.06%)",
       },
     },
   },
   plugins: [],
-} satisfies Config;
+} satisfies Config
