@@ -22,6 +22,9 @@ export default {
       center: true,
       padding: "16px",
     },
+    borderRadius: {
+      sm: "3px",
+    },
     extend: {
       colors: {
         light: "#fff",
@@ -32,6 +35,10 @@ export default {
       backgroundImage: {
         linear01: "linear-gradient(92deg, #FF8A29 31.2%, #CF5D00 71.97%)",
         linear02: "linear-gradient(123deg, #F99500 53.34%, #FFCD29 133.06%)",
+        hero: "url('/img/bg-hero.png')",
+      },
+      boxShadow: {
+        shape: "0px 4px 21px 0px rgba(0, 0, 0, 0.10)",
       },
     },
   },

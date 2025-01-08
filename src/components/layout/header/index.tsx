@@ -11,19 +11,21 @@ export function Header() {
     <header>
       <Topbar />
       <div className="container flex justify-between items-center pt-4 pb-10">
-        <Image
-          src={"/img/logo.png"}
-          width={297}
-          height={86}
-          alt="Logo do Paquetá Calçados"
-        />
+        <Link className="-ml-4" href={"/"}>
+          <Image
+            src={"/img/logo.png"}
+            width={297}
+            height={86}
+            alt="Logo do Paquetá Calçados"
+          />
+        </Link>
         <div className="flex items-center gap-10">
           <BtnFavorites />
           <Cart />
           <LogIn />
         </div>
       </div>
-      <div className="container">
+      <div className="container pb-4 shadow-md">
         <nav>
           <ul className="flex justify-between">
             {navLinks.map((link) => (

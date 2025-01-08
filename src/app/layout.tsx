@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import "./globals.css"
 import { montserrat, poppins } from "@/utils/fonts"
+import { Header } from "@/components/layout/header"
 
 export const metadata: Metadata = {
   title: "Paquetá Calçados",
@@ -14,7 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins} ${montserrat} antialiased`}>{children}</body>
+      <body className={`${poppins} ${montserrat} antialiased`}>
+        <Header />
+        {children}
+      </body>
     </html>
   )
 }
