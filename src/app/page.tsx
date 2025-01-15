@@ -3,6 +3,8 @@ import { NumberShoes } from "@/components/homepage/numberShoes"
 import { Products } from "@/components/homepage/products"
 import iconsHero from "@/data/icons-hero.json"
 import Image from "next/image"
+import brands from "@/data/brands.json"
+import { Input } from "@/components/form/input"
 
 export default function Home() {
   return (
@@ -99,6 +101,49 @@ export default function Home() {
       <NumberShoes />
 
       <Products />
+
+      <section className="pb-28">
+        <div className="container">
+          <div className="space-y-14">
+            <h3 className="text-gray text-[34px] font-semibold font-montserrat">
+              AS MELHORES MARCAS ESTÃO AQUI!
+            </h3>
+            <div>
+              <ul className="flex justify-between items-end">
+                {brands.map((brand) => (
+                  <li key={brand.logo}>
+                    <Image
+                      src={brand.logo}
+                      width={brand.width}
+                      height={brand.height}
+                      alt="Imagem da marca"
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-linear01 py-16">
+        <div className="container flex justify-between items-center">
+          <div className="max-w-[459px]">
+            <h3 className="text-light text-[34px] font-semibold font-montserrat">
+              SEJA O PRIMEIRO A RECEBER NOSSAS OFERTAS E NOVIDADES EXCLUSIVAS!
+            </h3>
+          </div>
+          <div>
+            <span className="text-light text-xl font-medium font-poppins">
+              Nos informe o seu e-mail e nome para o melhor atendimento!
+            </span>
+            <div className="mt-10 flex gap-7 items-center">
+              <Input type="email" placeholder="maria@seuemail.com" />
+              <Input type="text" placeholder="Maria da Silva" />
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   )
 }

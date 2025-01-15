@@ -1,0 +1,22 @@
+[
+  {
+    "logo": "/svg/logo-adidas.svg",
+    "width": 127,
+    "height": 86
+  },
+  {
+    "logo": "/svg/logo-viamarte.svg",
+    "width": 275,
+    "height": 33
+  },
+  {
+    "logo": "/svg/logo-bebece.svg",
+    "width": 212,
+    "height": 57
+  },
+  {
+    "logo": "/svg/logo-dumond.svg",
+    "width": 231,
+    "height": 46
+  }
+]
