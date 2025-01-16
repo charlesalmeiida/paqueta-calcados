@@ -1,10 +1,8 @@
-import { api } from "@/services/api"
+import { getProducts } from "@/services/getProducts"
 import { SlideProducts } from "./slideProducts"
 
 export async function Products() {
-  const data = await api.get("shoes")
-
-  const products = await data.data
+  const products = await getProducts()
 
   return (
     <section className="py-28">

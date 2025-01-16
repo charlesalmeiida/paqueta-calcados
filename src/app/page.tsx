@@ -5,11 +5,12 @@ import iconsHero from "@/data/icons-hero.json"
 import Image from "next/image"
 import brands from "@/data/brands.json"
 import { Input } from "@/components/form/input"
+import { Checkbox } from "@/components/form/checkbox"
 
 export default function Home() {
   return (
     <>
-      <main>
+      {/* <main>
         <section className="bg-hero py-32 bg-no-repeat bg-center bg-cover">
           <div className="flex justify-between container">
             <div></div>
@@ -29,18 +30,13 @@ export default function Home() {
         <div className="bg-linear01 py-16">
           <div className="container">
             <ul className="flex justify-between items-center">
-              {iconsHero.map((icon) => (
-                <li key={icon.name} className="flex items-center gap-5">
-                  <Image
-                    src={icon.icon}
-                    alt={icon.alt}
-                    width={icon.width}
-                    height={icon.height}
-                  />
+              {iconsHero.map(({ icon, name, alt, width, height }) => (
+                <li key={name} className="flex items-center gap-5">
+                  <Image src={icon} alt={alt} width={width} height={height} />
                   <span
                     className={`text-light text-sm font-poppins block max-w-[165px]`}
                   >
-                    {icon.name}
+                    {name}
                   </span>
                 </li>
               ))}
@@ -110,12 +106,12 @@ export default function Home() {
             </h3>
             <div>
               <ul className="flex justify-between items-end">
-                {brands.map((brand) => (
-                  <li key={brand.logo}>
+                {brands.map(({ logo, width, height }) => (
+                  <li key={logo}>
                     <Image
-                      src={brand.logo}
-                      width={brand.width}
-                      height={brand.height}
+                      src={logo}
+                      width={width}
+                      height={height}
                       alt="Imagem da marca"
                     />
                   </li>
@@ -133,17 +129,31 @@ export default function Home() {
               SEJA O PRIMEIRO A RECEBER NOSSAS OFERTAS E NOVIDADES EXCLUSIVAS!
             </h3>
           </div>
-          <div>
-            <span className="text-light text-xl font-medium font-poppins">
-              Nos informe o seu e-mail e nome para o melhor atendimento!
-            </span>
-            <div className="mt-10 flex gap-7 items-center">
-              <Input type="email" placeholder="maria@seuemail.com" />
-              <Input type="text" placeholder="Maria da Silva" />
+          <div className="space-y-10">
+            <div className="space-y-10">
+              <span className="text-light text-xl font-medium font-poppins">
+                Nos informe o seu e-mail e nome para o melhor atendimento!
+              </span>
+              <div className="flex gap-7 items-center">
+                <Input type="email" placeholder="maria@seuemail.com" />
+                <Input type="text" placeholder="Maria da Silva" />
+              </div>
             </div>
+            <div>
+              <div className="mt-6 flex items-center gap-8">
+                <span className="font-poppins text-lg text-light">
+                  Tenho interesse na categoria:
+                </span>
+                <div className="flex items-center gap-8">
+                  <Checkbox gender="male">Masculina</Checkbox>
+                  <Checkbox gender="female">Feminina</Checkbox>
+                </div>
+              </div>
+            </div>
+            <Button>Quero receber</Button>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   )
 }

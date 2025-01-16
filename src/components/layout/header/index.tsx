@@ -5,10 +5,11 @@ import { Cart } from "./buttons/cart"
 import { LogIn } from "./buttons/login"
 import navLinks from "@/data/nav-links.json"
 import Link from "next/link"
+import { ButtonsHeader } from "./btnsHeader"
 
 export function Header() {
   return (
-    <header>
+    <header className="shadow-shape">
       <Topbar />
       <div className="container flex justify-between items-center pt-4 pb-10">
         <Link className="-ml-4" href={"/"}>
@@ -19,13 +20,9 @@ export function Header() {
             alt="Logo do Paquetá Calçados"
           />
         </Link>
-        <div className="flex items-center gap-10">
-          <BtnFavorites />
-          <Cart />
-          <LogIn />
-        </div>
+        <ButtonsHeader />
       </div>
-      <div className="container pb-4 shadow-md">
+      {/* <div className="container pb-4">
         <nav>
           <ul className="flex justify-between">
             {navLinks.map((link) => (
@@ -38,7 +35,7 @@ export function Header() {
             ))}
           </ul>
         </nav>
-      </div>
+      </div> */}
     </header>
   )
 }
