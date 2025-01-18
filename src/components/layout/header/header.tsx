@@ -1,17 +1,14 @@
 import Image from "next/image"
-import { Topbar } from "./topbar"
-import { BtnFavorites } from "./buttons/favorites"
-import { Cart } from "./buttons/cart"
-import { LogIn } from "./buttons/login"
+import { Topbar } from "./topbar/topbar"
 import navLinks from "@/data/nav-links.json"
 import Link from "next/link"
-import { ButtonsHeader } from "./btnsHeader"
+import { ButtonsHeader } from "./btns-header/btns-header"
 
 export function Header() {
   return (
     <header className="shadow-shape">
       <Topbar />
-      <div className="container flex justify-between items-center pt-4 pb-10">
+      <div className="container relative flex justify-between items-center pt-4 pb-10">
         <Link className="-ml-4" href={"/"}>
           <Image
             src={"/img/logo.png"}
@@ -22,7 +19,7 @@ export function Header() {
         </Link>
         <ButtonsHeader />
       </div>
-      {/* <div className="container pb-4">
+      <div className="container pb-4">
         <nav>
           <ul className="flex justify-between">
             {navLinks.map((link) => (
@@ -35,7 +32,7 @@ export function Header() {
             ))}
           </ul>
         </nav>
-      </div> */}
+      </div>
     </header>
   )
 }

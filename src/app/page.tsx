@@ -1,16 +1,16 @@
-import { Button } from "@/components/button"
-import { NumberShoes } from "@/components/homepage/numberShoes"
-import { Products } from "@/components/homepage/products"
+import { Button } from "@/components/button/button"
+import { NumberShoes } from "@/components/homepage/number-shoes/number-shoes"
+import { Products } from "@/components/homepage/products/products"
 import iconsHero from "@/data/icons-hero.json"
 import Image from "next/image"
 import brands from "@/data/brands.json"
-import { Input } from "@/components/form/input"
-import { Checkbox } from "@/components/form/checkbox"
+import { Input } from "@/components/form/input/input"
+import { Checkbox } from "@/components/form/checkbox/checkbox"
 
 export default function Home() {
   return (
     <>
-      {/* <main>
+      <main>
         <section className="bg-hero py-32 bg-no-repeat bg-center bg-cover">
           <div className="flex justify-between container">
             <div></div>
@@ -123,11 +123,14 @@ export default function Home() {
       </section>
 
       <section className="bg-linear01 py-16">
-        <div className="container flex justify-between items-center">
+        <div className="container relative flex justify-between items-center">
           <div className="max-w-[459px]">
             <h3 className="text-light text-[34px] font-semibold font-montserrat">
               SEJA O PRIMEIRO A RECEBER NOSSAS OFERTAS E NOVIDADES EXCLUSIVAS!
             </h3>
+          </div>
+          <div className="absolute bottom-0 left-[675px]">
+            <Image src={"/svg/arrow.svg"} width={172} height={149} alt="Seta" />
           </div>
           <div className="space-y-10">
             <div className="space-y-10">
@@ -153,7 +156,7 @@ export default function Home() {
             <Button>Quero receber</Button>
           </div>
         </div>
-      </section> */}
+      </section>
     </>
   )
 }

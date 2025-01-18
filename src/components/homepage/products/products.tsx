@@ -1,5 +1,5 @@
-import { getProducts } from "@/services/getProducts"
-import { SlideProducts } from "./slideProducts"
+import { getProducts } from "@/services/get-products"
+import { SlideProducts } from "./slide-products/slide-products"
 
 export async function Products() {
   const products = await getProducts()
