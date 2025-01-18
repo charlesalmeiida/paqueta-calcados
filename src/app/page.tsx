@@ -30,8 +30,8 @@ export default function Home() {
         <div className="bg-linear01 py-16">
           <div className="container">
             <ul className="flex justify-between items-center">
-              {iconsHero.map(({ icon, name, alt, width, height }) => (
-                <li key={name} className="flex items-center gap-5">
+              {iconsHero.map(({ icon, name, alt, width, height }, index) => (
+                <li key={index} className="flex items-center gap-5">
                   <Image src={icon} alt={alt} width={width} height={height} />
                   <span
                     className={`text-light text-sm font-poppins block max-w-[165px]`}
@@ -106,8 +106,8 @@ export default function Home() {
             </h3>
             <div>
               <ul className="flex justify-between items-end">
-                {brands.map(({ logo, width, height }) => (
-                  <li key={logo}>
+                {brands.map(({ logo, width, height }, index) => (
+                  <li key={index}>
                     <Image
                       src={logo}
                       width={width}

@@ -1,0 +1,187 @@
+[
+  {
+    "title": "Institucional",
+    "links": [
+      {
+        "name": "Quem Somos",
+        "link": "/"
+      },
+      {
+        "name": "Nossas Lojas",
+        "link": "/"
+      },
+      {
+        "name": "Soluções Corporativas",
+        "link": "/"
+      },
+      {
+        "name": "Política de Privacidade",
+        "link": "/"
+      },
+      {
+        "name": "Contrato de Compra e Venda",
+        "link": "/"
+      },
+      {
+        "name": "Crédito Pessoal",
+        "link": "/"
+      }
+    ]
+  },
+  {
+    "title": "Ajuda e Suporte",
+    "links": [
+      {
+        "name": "Troca e Devolução",
+        "link": "/"
+      },
+      {
+        "name": "2ª Via do Boleto",
+        "link": "/"
+      },
+      {
+        "name": "Detalhamento de Fatura",
+        "link": "/"
+      },
+      {
+        "name": "Entregas",
+        "link": "/"
+      },
+      {
+        "name": "Meus Pedidos",
+        "link": "/"
+      },
+      {
+        "name": "Dúvidas Frequentes",
+        "link": "/"
+      },
+      {
+        "name": "Status do Pedido",
+        "link": "/"
+      }
+    ]
+  },
+  {
+    "title": "Atendimento",
+    "links": [
+      {
+        "name": "Fale Conosco",
+        "link": "/"
+      }
+    ]
+  },
+  {
+    "title": "Endereço",
+    "adress": "Rua Antonio Frederico Ozanan, 2601 Canoas - RS | CNPJ: 01.098.983/0175-02"
+  },
+  {
+    "title": "Trabalhe Conosco",
+    "links": [
+      {
+        "name": "Venha crescer com a Paquetá!",
+        "link": "/"
+      }
+    ]
+  },
+  {
+    "title": "Formas de Pagamento",
+    "logos": [
+      {
+        "logo": "/svg/logo-mastercard.svg",
+        "width": 50,
+        "height": 31
+      },
+      {
+        "logo": "/svg/logo-american-express.svg",
+        "width": 56,
+        "height": 22
+      },
+      {
+        "logo": "/svg/logo-elo.svg",
+        "width": 42,
+        "height": 16
+      },
+      {
+        "logo": "/img/logo.png",
+        "width": 58,
+        "height": 17
+      },
+      {
+        "logo": "/svg/logo-gaston.svg",
+        "width": 51,
+        "height": 12
+      },
+      {
+        "logo": "/svg/logo-visa.svg",
+        "width": 45,
+        "height": 16
+      },
+      {
+        "logo": "/svg/logo-hipercard.svg",
+        "width": 48,
+        "height": 21
+      },
+      {
+        "logo": "/svg/logo-itau.svg",
+        "width": 33,
+        "height": 33
+      },
+      {
+        "logo": "/svg/logo-boleto.svg",
+        "width": 33,
+        "height": 32
+      }
+    ]
+  },
+  {
+    "title": "Redes Sociais",
+    "redes": [
+      {
+        "name": "Instagram",
+        "logo": "/svg/logo-instagram.svg",
+        "width": 24,
+        "height": 24
+      },
+      {
+        "name": "Facebook",
+        "logo": "/svg/logo-facebook.svg",
+        "width": 14,
+        "height": 25
+      },
+      {
+        "name": "Twitter",
+        "logo": "/svg/logo-twitter.svg",
+        "width": 28,
+        "height": 23
+      },
+      {
+        "name": "YouTube",
+        "logo": "/svg/logo-youtube.svg",
+        "width": 29,
+        "height": 20
+      },
+      {
+        "name": "Pinterest",
+        "logo": "/svg/logo-pinterest.svg",
+        "width": 22,
+        "height": 25
+      }
+    ]
+  },
+  {
+    "title": "Prêmios e Certificações",
+    "logo": {
+      "logo": "/svg/logo-ebit.svg",
+      "width": 70,
+      "height": 95
+    }
+  },
+  {
+    "title": "Segurança",
+    "logo": {
+      "logo": "/svg/logo-site-blindado.svg",
+      "width": 115,
+      "height": 32
+    }
+  }
+]

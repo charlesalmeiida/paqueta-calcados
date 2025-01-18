@@ -43,19 +43,16 @@ export function SlideProducts({ productData }: SlideProps) {
           modules={[Pagination]}
           className="mySwiper"
         >
-          <ul>
-            {products.slice(0, 8).map((product) => (
-              <li key={product.id}>
-                <SwiperSlide>
-                  <CardItem
-                    name={product.name}
-                    price={product.price.value}
-                    image={product.image}
-                  />
-                </SwiperSlide>
-              </li>
-            ))}
-          </ul>
+          {products.slice(0, 8).map((product, index) => (
+            <SwiperSlide key={index}>
+              <CardItem
+                name={product.name}
+                price={product.price.value}
+                image={product.image}
+              />
+            </SwiperSlide>
+          ))}
+
           <div className="custom-pagination" />
         </Swiper>
       </div>
