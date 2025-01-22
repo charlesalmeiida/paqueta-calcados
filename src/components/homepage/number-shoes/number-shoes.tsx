@@ -13,7 +13,7 @@ export function NumberShoes() {
             height={154}
             alt="Logo Paquetá Outlet"
           />
-          <p className="text-gray01 mb-9 max-w-[588px] text-[22px] font-montserrat text-right">
+          <p className="text-gray01 mb-9  max-w-[588px] text-[22px] font-montserrat text-right">
             Você também pode escolher o seu novo sapato favorito de acordo com a
             sua numeração.
           </p>

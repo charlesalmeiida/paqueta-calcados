@@ -4,9 +4,9 @@ import Link from "next/link"
 
 export function Footer() {
   return (
-    <footer className="py-16">
+    <footer className="pt-16">
       <div className="container">
-        <div className="flex gap-6 items-start">
+        <div className="flex justify-between items-start">
           <div className="space-y-3">
             <h6 className="text-lg font-bold text-gray01">
               {footerNav[0].title}
@@ -119,7 +119,44 @@ export function Footer() {
               </ul>
             </div>
           </div>
+          <div className="space-y-12">
+            <div className="space-y-3">
+              <h6 className="text-lg font-bold text-gray01">
+                {footerNav[7].title}
+              </h6>
+              {footerNav[7].img && (
+                <Image
+                  src={footerNav[7].img.src}
+                  width={footerNav[7].img.width}
+                  height={footerNav[7].img.height}
+                  alt="Logo de premiação EBIT"
+                />
+              )}
+            </div>
+            <div className="space-y-3">
+              <h6 className="text-lg font-bold text-gray01">
+                {footerNav[8].title}
+              </h6>
+              {footerNav[8].img && (
+                <Image
+                  src={footerNav[8].img.src}
+                  width={footerNav[8].img.width}
+                  height={footerNav[8].img.height}
+                  alt="Logo de site blindado"
+                />
+              )}
+            </div>
+          </div>
         </div>
+      </div>
+      <div className="bg-gray01 py-5 flex items-center justify-center gap-7 mt-16">
+        <strong className="text-xl font-medium font-montserrat text-light">UMA EMPRESA DO GRUPO</strong>
+        <Image
+          src={"/svg/logo-paqueta-company.svg"}
+          width={265}
+          height={59}
+          alt="Logo do grupo Paquetá"
+        />
       </div>
     </footer>
   )

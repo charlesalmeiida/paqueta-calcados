@@ -170,16 +170,16 @@
   },
   {
     "title": "Prêmios e Certificações",
-    "logo": {
-      "logo": "/svg/logo-ebit.svg",
+    "img": {
+      "src": "/svg/logo-ebit.svg",
       "width": 70,
       "height": 95
     }
   },
   {
     "title": "Segurança",
-    "logo": {
-      "logo": "/svg/logo-site-blindado.svg",
+    "img": {
+      "src": "/svg/logo-site-blindado.svg",
       "width": 115,
       "height": 32
     }

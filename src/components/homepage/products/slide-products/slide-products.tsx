@@ -4,8 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/pagination"
 import { Pagination } from "swiper/modules"
-import { CardItem } from "../card-item/card-item"
 import { useState } from "react"
+import { CardItem } from "../card-item/card-item"
 
 interface Product {
   id: string
@@ -46,9 +46,11 @@ export function SlideProducts({ productData }: SlideProps) {
           {products.slice(0, 8).map((product, index) => (
             <SwiperSlide key={index}>
               <CardItem
+                id={product.id}
                 name={product.name}
                 price={product.price.value}
                 image={product.image}
+                soldout={product.soldout}
               />
             </SwiperSlide>
           ))}
