@@ -10,6 +10,8 @@ interface CardItemProps {
 }
 
 export function CardItem({ name, price, image, id, soldout }: CardItemProps) {
+  const parcelas = price > 150 ? 10 : 9
+
   return (
     <>
       {soldout && (
@@ -44,8 +46,8 @@ export function CardItem({ name, price, image, id, soldout }: CardItemProps) {
             </p>
             <div className="space-y-2 mt-3">
               <h6>R$ {price}</h6>
-              <span className="text-gray01 font-montserrat text-xs opacity-60">
-                OU 9X R$ 16,66
+              <span className="text-gray01 block mt-2 font-montserrat text-xs opacity-60">
+                OU {parcelas}X R$ {(price / parcelas).toFixed(2)}
               </span>
             </div>
           </div>
