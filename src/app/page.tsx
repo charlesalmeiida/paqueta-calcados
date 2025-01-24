@@ -6,10 +6,14 @@ import Image from "next/image"
 import brands from "@/data/brands.json"
 import { Input } from "@/components/form/input/input"
 import { Checkbox } from "@/components/form/checkbox/checkbox"
+import { Footer } from "@/components/layout/footer/footer"
+import { Header } from "@/components/layout/header/header"
 
 export default function Home() {
   return (
     <>
+      <Header />
+
       <main>
         <section className="bg-hero py-32 bg-no-repeat bg-center bg-cover">
           <div className="flex justify-between container">
@@ -157,6 +161,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </>
   )
 }

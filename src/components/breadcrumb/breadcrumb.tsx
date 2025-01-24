@@ -2,10 +2,10 @@ import Image from "next/image"
 import Link from "next/link"
 
 interface BreadcrumbProps {
-  children: React.ReactNode
+  pageName: string
 }
 
-export function Breadcrumb({ children }: BreadcrumbProps) {
+export function Breadcrumb({ pageName }: BreadcrumbProps) {
   return (
     <div className="flex items-center gap-4">
       <Link
@@ -17,7 +17,7 @@ export function Breadcrumb({ children }: BreadcrumbProps) {
       <Image src={"/svg/chevron-right.svg"} width={5} height={9} alt="Seta" />
       <span>
         <span className="font-medium text-lg font-montserrat text-gray01 border-b border-primary01">
-          {children}
+          {pageName}
         </span>
       </span>
     </div>

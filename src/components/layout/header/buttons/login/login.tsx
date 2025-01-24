@@ -1,8 +1,13 @@
 import Image from "next/image"
+import { redirect } from "next/navigation"
+
+const goToLogin = () => {
+  redirect("/entrar")
+}
 
 export function LogIn() {
   return (
-    <button className="flex items-end gap-3">
+    <button className="flex items-end gap-3" onClick={goToLogin}>
       <Image
         src={"/svg/icon-login.svg"}
         width={28}
