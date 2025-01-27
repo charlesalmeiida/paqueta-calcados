@@ -1,4 +1,7 @@
 import { Breadcrumb } from "@/components/breadcrumb/breadcrumb"
+import { Button } from "@/components/button/button"
+import { Footer } from "@/components/layout/footer/footer"
+import { Header } from "@/components/layout/header/header"
 import Image from "next/image"
 
 interface Item {
@@ -16,6 +19,7 @@ export default async function Product({
 }: {
   params: Promise<{ id: string }>
 }) {
+
   const id = (await params).id
 
   const data = await fetch(
@@ -34,18 +38,21 @@ export default async function Product({
 
   const totalDiscount = discount * 100
 
+  const parcelas = value > 150 ? 10 : 9
+
   return (
-    <section className="container py-20">
-      <Breadcrumb pageName={name} />
-      <div className="flex items-start mt-14">
-        <Image
-          className="-mt-40 -ml-20"
-          src={image}
-          width={835}
-          height={835}
-          alt={`Imagem do produto ${name}`}
-        />
-        <div>
+    <>
+      <Header />
+      <section className="container py-20">
+        <Breadcrumb pageName={name} />
+        <div className="flex items-start mt-14">
+          <Image
+            className="-mt-40 -ml-20"
+            src={image}
+            width={835}
+            height={835}
+            alt={`Imagem do produto ${name}`}
+          />
           <div>
             <button>
               <Image
@@ -63,20 +70,32 @@ export default async function Product({
                 Código do produto: {id}
               </span>
             </div>
-            {totalDiscount > 0 && (
-              <div className="mt-12 flex items-center gap-6">
-                <span className="block font-montserrat text-[22px] text-gray01 line-through">
-                  R${priceBeforeDiscount}
-                </span>
-                <span className="block bg-success text-light text-sm font-semibold font-montserrat px-4 rounded-sm">
-                  {totalDiscount}% de desconto
-                </span>
-              </div>
-            )}
-            <h2>R$ {value}</h2>
+            <div>
+              {totalDiscount > 0 && (
+                <div className="mt-12 flex items-center gap-6">
+                  <span className="block font-montserrat text-[22px] text-gray01 line-through">
+                    R${priceBeforeDiscount}
+                  </span>
+                  <span className="block bg-success text-light text-sm font-semibold font-montserrat px-4 rounded-sm">
+                    {totalDiscount}% de desconto
+                  </span>
+                </div>
+              )}
+              <h2 className="text-[40px] mt-4 font-montserrat font-bold text-gray">
+                R$ {value}
+              </h2>
+              <span className="font-montserrat text-gray01 opacity-60 font-medium text-xl">
+                ou {parcelas}x de R$
+                {(value / parcelas).toFixed(2).replace(".", ",")}
+              </span>
+            </div>
+            <div className="mt-20">
+              <Button>COMPRAR</Button>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <Footer />
+    </>
   )
 }

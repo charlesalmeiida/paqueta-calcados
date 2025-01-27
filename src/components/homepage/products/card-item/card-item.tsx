@@ -47,8 +47,9 @@ export function CardItem({ name, price, image, id, soldout }: CardItemProps) {
             <div className="space-y-2 mt-3">
               <h6>R$ {price.toLocaleString("pt-BR")}</h6>
               <span className="text-gray01 block mt-2 font-montserrat text-xs opacity-60">
-                OU {parcelas}X R$ {(price / parcelas).toFixed(2).replace(".", ",")}
-              </span>
+                OU {parcelas}X R${" "}
+                {(price / parcelas).toFixed(2).replace(".", ",")}
+              </span>{" "}
             </div>
           </div>
         </div>
