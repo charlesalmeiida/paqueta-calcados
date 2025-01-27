@@ -1,5 +1,5 @@
 import { Breadcrumb } from "@/components/breadcrumb/breadcrumb"
-import { Button } from "@/components/button/button"
+import { AddToCart } from "@/components/button/add-to-cart"
 import { Footer } from "@/components/layout/footer/footer"
 import { Header } from "@/components/layout/header/header"
 import Image from "next/image"
@@ -19,7 +19,6 @@ export default async function Product({
 }: {
   params: Promise<{ id: string }>
 }) {
-
   const id = (await params).id
 
   const data = await fetch(
@@ -89,8 +88,11 @@ export default async function Product({
                 {(value / parcelas).toFixed(2).replace(".", ",")}
               </span>
             </div>
+            <div>
+              <span>Escolha a numeração:</span>
+            </div>
             <div className="mt-20">
-              <Button>COMPRAR</Button>
+              <AddToCart />
             </div>
           </div>
         </div>

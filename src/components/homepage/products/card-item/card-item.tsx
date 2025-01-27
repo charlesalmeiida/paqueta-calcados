@@ -1,3 +1,6 @@
+"use client"
+
+import { useToast } from "@/hooks/use-toast"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -10,6 +13,8 @@ interface CardItemProps {
 }
 
 export function CardItem({ name, price, image, id, soldout }: CardItemProps) {
+  const { toast } = useToast()
+
   const parcelas = price > 150 ? 10 : 9
 
   return (
@@ -22,7 +27,10 @@ export function CardItem({ name, price, image, id, soldout }: CardItemProps) {
         </div>
       )}
       <div className="bg-light rounded-sm max-w-[307px] h-[412px] pt-14 pb-6 cursor-pointer px-6 shadow-shape w-fit relative flex flex-col justify-between">
-        <button className="absolute top-10 right-10 mt-2">
+        <button
+          onClick={() => toast({ title: "Produto adicionado aos favoritos!" })}
+          className="absolute top-10 right-10 mt-2"
+        >
           <Image
             src={"/svg/icon-fav.svg"}
             width={20}
