@@ -4,6 +4,7 @@ import { useToast } from "@/hooks/use-toast"
 import { useProductStore } from "@/store/favorites-store"
 import Image from "next/image"
 import Link from "next/link"
+import { useState } from "react"
 
 interface CardItemProps {
   name: string
@@ -16,6 +17,7 @@ interface CardItemProps {
 export function CardItem({ name, price, image, id, soldout }: CardItemProps) {
   const { toast } = useToast()
   const { addToFavorites, removeFromFavorites, favorites } = useProductStore()
+  const [isFavorited, setIsFavorited] = useState(false)
 
   const handleFavorites = () => {
     toast({ title: "Produto adicionado aos favoritos!" })
@@ -37,6 +39,8 @@ export function CardItem({ name, price, image, id, soldout }: CardItemProps) {
 
       toast({ title: "Produto removido dos favoritos!" })
     }
+
+    setIsFavorited(!isFavorited)
   }
 
   const parcelas = price > 150 ? 10 : 9
@@ -56,7 +60,7 @@ export function CardItem({ name, price, image, id, soldout }: CardItemProps) {
           className="absolute top-10 right-10 mt-2"
         >
           <Image
-            src={"/svg/icon-fav.svg"}
+            src={isFavorited ? "/svg/icon-fav-fill.svg" : "/svg/icon-fav.svg"}
             width={20}
             height={18}
             alt="Ícone de favoritar produto"
