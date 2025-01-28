@@ -1,6 +1,6 @@
 "use client"
 
-import { useProductStore } from "@/store/favorites-store"
+import { useProductStore } from "@/store/product-store"
 import Image from "next/image"
 
 export function BtnFavorites() {

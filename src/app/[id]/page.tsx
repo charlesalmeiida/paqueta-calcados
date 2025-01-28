@@ -2,17 +2,8 @@ import { Breadcrumb } from "@/components/breadcrumb/breadcrumb"
 import { AddToCart } from "@/components/button/add-to-cart"
 import { Footer } from "@/components/layout/footer/footer"
 import { Header } from "@/components/layout/header/header"
+import { Item } from "@/store/product-store"
 import Image from "next/image"
-
-interface Item {
-  name: string
-  price: {
-    value: number
-    discount: number
-  }
-  image: string
-  description: string
-}
 
 export default async function Product({
   params,
@@ -30,6 +21,8 @@ export default async function Product({
       name,
       image,
       price: { value, discount },
+      description,
+      soldout,
     },
   ]: Item[] = await data.json()
 
@@ -92,7 +85,14 @@ export default async function Product({
               <span>Escolha a numeração:</span>
             </div>
             <div className="mt-20">
-              <AddToCart />
+              <AddToCart
+                description={description}
+                id={id}
+                name={name}
+                soldout={soldout}
+                image={image}
+                price={{ value, discount }}
+              />
             </div>
           </div>
         </div>

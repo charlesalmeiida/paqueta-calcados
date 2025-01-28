@@ -13,14 +13,18 @@ export type Item = {
 }
 
 type CartStore = {
+  cart: Item[]
   products: Item[]
   favorites: Item[]
   fetchProducts: () => Promise<void>
   addToFavorites: (product: Item) => void
   removeFromFavorites: (productId: string) => void
+  addToCart: (product: Item) => void
+  removeFromCart: (productId: string) => void
 }
 
 export const useProductStore = create<CartStore>((set) => ({
+  cart: [],
   products: [],
   favorites: [],
   fetchProducts: async () => {
@@ -28,7 +32,7 @@ export const useProductStore = create<CartStore>((set) => ({
       "https://api.brchallenges.com/api/paqueta/shoes"
     )
     const products = await response.json()
-    set({ products }) 
+    set({ products })
   },
   addToFavorites: (product: Item) =>
     set((state) => {
@@ -40,5 +44,16 @@ export const useProductStore = create<CartStore>((set) => ({
   removeFromFavorites: (productId: string) =>
     set((state) => ({
       favorites: state.favorites.filter((item) => item.id !== productId),
+    })),
+  addToCart: (product: Item) =>
+    set((state) => {
+      if (!state.cart.find((item) => item.id === product.id)) {
+        return { cart: [...state.cart, product] }
+      }
+      return state
+    }),
+  removeFromCart: (productId: string) =>
+    set((state) => ({
+      cart: state.cart.filter((item) => item.id !== productId),
     })),
 }))

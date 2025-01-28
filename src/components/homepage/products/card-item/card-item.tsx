@@ -1,7 +1,7 @@
 "use client"
 
 import { useToast } from "@/hooks/use-toast"
-import { useProductStore } from "@/store/favorites-store"
+import { useProductStore } from "@/store/product-store"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"

@@ -6,7 +6,7 @@ import "swiper/css/pagination"
 import { Pagination } from "swiper/modules"
 import { CardItem } from "../card-item/card-item"
 import { useEffect } from "react"
-import { useProductStore } from "@/store/favorites-store"
+import { useProductStore } from "@/store/product-store"
 
 export function SlideProducts() {
   const { products, fetchProducts } = useProductStore()
