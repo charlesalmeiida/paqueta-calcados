@@ -4,31 +4,16 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/pagination"
 import { Pagination } from "swiper/modules"
-import { useState } from "react"
 import { CardItem } from "../card-item/card-item"
+import { useEffect } from "react"
+import { useProductStore } from "@/store/favorites-store"
 
-interface Product {
-  id: string
-  name: string
-  price: {
-    value: number
-    discount: number
-  }
-  soldout: boolean
-  image: string
-  description: string
-}
+export function SlideProducts() {
+  const { products, fetchProducts } = useProductStore()
 
-interface SlideProps {
-  productData: Product[]
-}
-
-export function SlideProducts({ productData }: SlideProps) {
-  const [products, setProducts] = useState<Product[]>([])
-
-  if (products.length === 0) {
-    setProducts(productData)
-  }
+  useEffect(() => {
+    fetchProducts()
+  }, [products])
 
   return (
     <>
@@ -43,17 +28,19 @@ export function SlideProducts({ productData }: SlideProps) {
           modules={[Pagination]}
           className="mySwiper"
         >
-          {products.slice(0, 8).map((product, index) => (
-            <SwiperSlide key={index}>
-              <CardItem
-                id={product.id}
-                name={product.name}
-                price={product.price.value}
-                image={product.image}
-                soldout={product.soldout}
-              />
-            </SwiperSlide>
-          ))}
+          {products
+            .slice(0, 8)
+            .map(({ id, name, price, image, soldout }, index) => (
+              <SwiperSlide key={index}>
+                <CardItem
+                  id={id}
+                  name={name}
+                  price={price.value}
+                  image={image}
+                  soldout={soldout}
+                />
+              </SwiperSlide>
+            ))}
 
           <div className="custom-pagination" />
         </Swiper>

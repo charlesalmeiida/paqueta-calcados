@@ -1,8 +1,6 @@
-import { getProducts } from "@/services/get-products"
 import { SlideProducts } from "./slide-products/slide-products"
 
 export async function Products() {
-  const products = await getProducts()
 
   return (
     <section className="py-28">
@@ -15,7 +13,7 @@ export async function Products() {
             Conferir tudo
           </button>
         </div>
-        <SlideProducts productData={products} />
+        <SlideProducts />
       </div>
     </section>
   )
