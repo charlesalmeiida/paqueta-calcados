@@ -1,11 +1,16 @@
 import { useProductStore } from "@/store/product-store"
 import Image from "next/image"
+import { redirect } from "next/navigation"
 
 export function Cart() {
   const { cart } = useProductStore()
 
+  const goToCart = () => {
+    redirect("/carrinho")
+  }
+
   return (
-    <button className="flex items-end gap-3">
+    <button className="flex items-end gap-3" onClick={goToCart}>
       <div className="relative">
         <Image
           src={"/svg/icon-bag.svg"}
