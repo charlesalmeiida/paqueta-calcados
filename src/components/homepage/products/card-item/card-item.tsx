@@ -1,6 +1,7 @@
 "use client"
 
 import { useToast } from "@/hooks/use-toast"
+import { useProductStore } from "@/store/favorites-store"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -14,6 +15,29 @@ interface CardItemProps {
 
 export function CardItem({ name, price, image, id, soldout }: CardItemProps) {
   const { toast } = useToast()
+  const { addToFavorites, removeFromFavorites, favorites } = useProductStore()
+
+  const handleFavorites = () => {
+    toast({ title: "Produto adicionado aos favoritos!" })
+
+    addToFavorites({
+      id,
+      name,
+      image,
+      price: {
+        value: price,
+        discount: 0,
+      },
+      soldout,
+      description: "",
+    })
+
+    if (favorites.find((item) => item.id === id)) {
+      removeFromFavorites(id)
+
+      toast({ title: "Produto removido dos favoritos!" })
+    }
+  }
 
   const parcelas = price > 150 ? 10 : 9
 
@@ -28,7 +52,7 @@ export function CardItem({ name, price, image, id, soldout }: CardItemProps) {
       )}
       <div className="bg-light rounded-sm max-w-[307px] h-[412px] pt-14 pb-6 cursor-pointer px-6 shadow-shape w-fit relative flex flex-col justify-between">
         <button
-          onClick={() => toast({ title: "Produto adicionado aos favoritos!" })}
+          onClick={handleFavorites}
           className="absolute top-10 right-10 mt-2"
         >
           <Image
