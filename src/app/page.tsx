@@ -18,7 +18,7 @@ export default function Home() {
         <section className="bg-hero py-32 bg-no-repeat bg-center bg-cover">
           <div className="flex justify-between container">
             <div></div>
-            <div className="-mr-32">
+            <div className="xl:-mr-32">
               <h1 className="text-gray01">Tênis Casual</h1>
               <h2 className="text-primary01 -mt-8">Masculino</h2>
               <div className="mt-6">

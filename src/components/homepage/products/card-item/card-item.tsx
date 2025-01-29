@@ -19,6 +19,10 @@ export function CardItem({ name, price, image, id, soldout }: CardItemProps) {
   const { addToFavorites, removeFromFavorites, favorites } = useProductStore()
   const [isFavorited, setIsFavorited] = useState(false)
 
+  const iconFavorited = favorites.find((item) => item.id === id)
+    ? "/svg/icon-fav-fill.svg"
+    : "/svg/icon-fav.svg"
+
   const handleFavorites = () => {
     toast({ title: "Produto adicionado aos favoritos!" })
 
@@ -60,7 +64,7 @@ export function CardItem({ name, price, image, id, soldout }: CardItemProps) {
           className="absolute top-10 right-10 mt-2"
         >
           <Image
-            src={isFavorited ? "/svg/icon-fav-fill.svg" : "/svg/icon-fav.svg"}
+            src={iconFavorited}
             width={20}
             height={18}
             alt="Ícone de favoritar produto"

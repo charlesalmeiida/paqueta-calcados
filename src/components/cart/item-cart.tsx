@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { RemoveFromCart } from "../button/remove-from-cart"
 
 interface ItemCartProps {
   image: string
@@ -11,7 +12,13 @@ export function ItemCart({ image, name, id, price }: ItemCartProps) {
   return (
     <div className="flex justify-between items-start">
       <div className="flex gap-16">
-        <Image src={image} width={219} height={258} alt="Imagem do produto" className="flex-1" />
+        <Image
+          src={image}
+          width={219}
+          height={258}
+          alt="Imagem do produto"
+          className="flex-1"
+        />
         <div>
           <h2 className="text-[38px] uppercase text-gray font-bold font-montserrat">
             {name}
@@ -35,15 +42,7 @@ export function ItemCart({ image, name, id, price }: ItemCartProps) {
           </div>
         </div>
       </div>
-      <button className="flex items-center gap-4 text-lg font-montserrat text-gray font-medium ml-16">
-        <Image
-          src={"/svg/icon-trash.svg"}
-          width={28}
-          height={32}
-          alt="Ícone de remover o item do carrinho"
-        />
-        Remover
-      </button>
+      <RemoveFromCart productId={id} />
     </div>
   )
 }

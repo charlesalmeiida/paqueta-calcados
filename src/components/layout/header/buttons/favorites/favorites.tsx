@@ -21,7 +21,9 @@ export function BtnFavorites() {
           </span>
         )}
       </div>
-      <span className="text-gray01 text-sm font-poppins">Lista de desejos</span>
+      <span className="text-gray01 text-sm font-poppins hover:text-primary01">
+        Lista de desejos
+      </span>
     </button>
   )
 }

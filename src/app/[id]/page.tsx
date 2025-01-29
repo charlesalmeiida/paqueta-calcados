@@ -1,5 +1,6 @@
 import { Breadcrumb } from "@/components/breadcrumb/breadcrumb"
 import { AddToCart } from "@/components/button/add-to-cart"
+import { HandleFavorites } from "@/components/button/handle-favorites"
 import { Footer } from "@/components/layout/footer/footer"
 import { Header } from "@/components/layout/header/header"
 import { Item } from "@/store/product-store"
@@ -46,14 +47,13 @@ export default async function Product({
             alt={`Imagem do produto ${name}`}
           />
           <div>
-            <button>
-              <Image
-                src={"/svg/icon-fav-product.svg"}
-                width={35}
-                height={31}
-                alt="Ícone de adicionar aos favoritos"
-              />
-            </button>
+            <HandleFavorites
+              id={id}
+              name={name}
+              image={image}
+              price={{ value }}
+              soldout={soldout}
+            />
             <div className="space-y-4">
               <h3 className="text-gray text-[40px] font-semibold font-montserrat">
                 {name.toLocaleUpperCase()}

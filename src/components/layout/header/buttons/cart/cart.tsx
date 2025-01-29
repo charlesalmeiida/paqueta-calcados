@@ -24,7 +24,9 @@ export function Cart() {
           </span>
         )}
       </div>
-      <span className="text-gray01 text-sm font-poppins">Sacola</span>
+      <span className="text-gray01 text-sm font-poppins hover:text-primary01">
+        Sacola
+      </span>
     </button>
   )
 }

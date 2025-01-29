@@ -14,7 +14,7 @@ export function LogIn() {
         height={28}
         alt="Ícone de login"
       />
-      <span className="text-gray01 text-sm font-poppins">Entrar</span>
+      <span className="text-gray01 text-sm font-poppins hover:text-primary01">Entrar</span>
     </button>
   )
 }
