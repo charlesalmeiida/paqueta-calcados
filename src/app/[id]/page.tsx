@@ -1,10 +1,12 @@
 import { Breadcrumb } from "@/components/breadcrumb/breadcrumb"
 import { AddToCart } from "@/components/button/add-to-cart"
 import { HandleFavorites } from "@/components/button/handle-favorites"
+import { NumberShoesProduct } from "@/components/homepage/number-shoes/number-shoes-product"
 import { Footer } from "@/components/layout/footer/footer"
 import { Header } from "@/components/layout/header/header"
 import { Item } from "@/store/product-store"
 import Image from "next/image"
+import Link from "next/link"
 
 export default async function Product({
   params,
@@ -59,7 +61,7 @@ export default async function Product({
                 {name.toLocaleUpperCase()}
               </h3>
               <span className="block text-lg text-gray01 opacity-80 font-montserrat">
-                Código do produto: {id}
+                Código do produto: {id.split("-")[0]}
               </span>
             </div>
             <div>
@@ -81,10 +83,13 @@ export default async function Product({
                 {(value / parcelas).toFixed(2).replace(".", ",")}
               </span>
             </div>
-            <div>
-              <span>Escolha a numeração:</span>
+            <div className="mt-12">
+              <NumberShoesProduct />
             </div>
-            <div className="mt-20">
+            <button className="text-gray01 text-base font-montserrat opacity-60 font-bold mt-8">
+              Guia de tamanhos
+            </button>
+            <div className="mt-14">
               <AddToCart
                 description={description}
                 id={id}
@@ -95,6 +100,71 @@ export default async function Product({
               />
             </div>
           </div>
+        </div>
+        <div className="-mt-20">
+          <span className="text-lg font-montserrat text-gray01 opacity-80">
+            Compartilhe
+          </span>
+          <ul className="flex items-center gap-4 mt-3">
+            <li>
+              <Link href={"/"}>
+                <Image
+                  src={"/svg/logo-instagram.svg"}
+                  width={24}
+                  height={24}
+                  alt="Logo Instagram"
+                />
+              </Link>
+            </li>
+            <li>
+              <Link href={"/"}>
+                <Image
+                  src={"/svg/logo-facebook.svg"}
+                  width={14}
+                  height={25}
+                  alt="Logo Facebook"
+                />
+              </Link>
+            </li>
+            <li>
+              <Link href={"/"}>
+                <Image
+                  src={"/svg/logo-twitter.svg"}
+                  width={28}
+                  height={22}
+                  alt="Logo Twitter"
+                />
+              </Link>
+            </li>
+            <li>
+              <Link href={"/"}>
+                <Image
+                  src={"/svg/logo-youtube.svg"}
+                  width={29}
+                  height={20}
+                  alt="Logo YouTube"
+                />
+              </Link>
+            </li>
+            <li>
+              <Link href={"/"}>
+                <Image
+                  src={"/svg/logo-pinterest.svg"}
+                  width={22}
+                  height={25}
+                  alt="Logo Pinterest"
+                />
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="mt-14">
+          <h4 className="text-gray font-montserrat text-[40px] font-semibold">
+            DESCRIÇÃO DO PRODUTO
+          </h4>
+          <p className="font-montserrat mt-4 text-gray01 text-[22px] font-light leading-10 max-w-6xl">
+            {description}
+          </p>
         </div>
       </section>
       <Footer />

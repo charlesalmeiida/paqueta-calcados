@@ -5,6 +5,7 @@ import { ItemCart } from "./item-cart"
 
 export function Cart() {
   const { cart } = useProductStore()
+  const totalPrice = cart.reduce((total, item) => total + item.price.value, 0)
 
   return (
     <div>
@@ -22,6 +23,7 @@ export function Cart() {
               <div className="w-full h-px bg-primary01 opacity-50"></div>
             </>
           ))}
+          <p>Valor total: R$ {totalPrice.toLocaleString("pt-BR")}</p>
         </div>
       )}
     </div>
