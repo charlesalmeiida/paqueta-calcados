@@ -92,15 +92,15 @@ export default async function Product({
                     ou {parcelas}x de R$
                     {(value / parcelas).toFixed(2).replace(".", ",")}
                   </span>
+                  <div className="mt-12">
+                    <NumberShoesProduct productId={id} />
+                  </div>
+                  <button className="text-gray01 text-base font-montserrat opacity-60 font-bold mt-8">
+                    Guia de tamanhos
+                  </button>
                 </div>
               )}
             </div>
-            <div className="mt-12">
-              <NumberShoesProduct productId={id} />
-            </div>
-            <button className="text-gray01 text-base font-montserrat opacity-60 font-bold mt-8">
-              Guia de tamanhos
-            </button>
             <div className="mt-14">
               <AddToCart
                 description={description}
