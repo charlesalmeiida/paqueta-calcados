@@ -12,6 +12,8 @@ export type Item = {
   description: string
 }
 
+const Numbers = [34, 35, 36, 37, 38, 39, 40]
+
 type CartStore = {
   cart: Item[]
   products: Item[]
@@ -21,6 +23,7 @@ type CartStore = {
   removeFromFavorites: (productId: string) => void
   addToCart: (product: Item) => void
   removeFromCart: (productId: string) => void
+  avaibleNumbers: number[]
 }
 
 export const useProductStore = create<CartStore>((set) => ({
@@ -56,4 +59,5 @@ export const useProductStore = create<CartStore>((set) => ({
     set((state) => ({
       cart: state.cart.filter((item) => item.id !== productId),
     })),
+  avaibleNumbers: Numbers,
 }))

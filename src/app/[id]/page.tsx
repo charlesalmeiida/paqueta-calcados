@@ -4,6 +4,7 @@ import { HandleFavorites } from "@/components/button/handle-favorites"
 import { NumberShoesProduct } from "@/components/homepage/number-shoes/number-shoes-product"
 import { Footer } from "@/components/layout/footer/footer"
 import { Header } from "@/components/layout/header/header"
+import { RelatedProducts } from "@/components/product-page/related-products"
 import { Item } from "@/store/product-store"
 import Image from "next/image"
 import Link from "next/link"
@@ -165,6 +166,9 @@ export default async function Product({
           <p className="font-montserrat mt-4 text-gray01 text-[22px] font-light leading-10 max-w-6xl">
             {description}
           </p>
+        </div>
+        <div className="mt-52">
+          <RelatedProducts />
         </div>
       </section>
       <Footer />

@@ -22,8 +22,8 @@ export function NumberShoes() {
           <ul className="flex justify-between items-center">
             {avaibleNumber.map((number) => (
               <li key={number}>
-                <button className="border rounded-sm border-gray01 flex opacity-70 items-center justify-center w-fit p-5 hover:bg-slate-200">
-                  <span className="text-gray01 font-montserrat text-[22px] font-medium">
+                <button className="border rounded-sm border-gray01 flex opacity-70 items-center justify-center w-fit p-5 hover:border-primary01 group">
+                  <span className="text-gray01 font-montserrat text-[22px] group-hover:text-primary01 font-medium">
                     {number}
                   </span>
                 </button>
