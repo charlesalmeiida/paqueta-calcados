@@ -12,13 +12,11 @@ export function AddToCart({
   description,
 }: Item) {
   const { toast } = useToast()
-  const { addToCart } = useProductStore()
+  const { addToCart, setModalEmailOpen } = useProductStore()
 
   const isSoldout = soldout ? "bg-primary01" : "bg-linear02"
 
   const handleCart = () => {
-    toast({ title: "Produto adicionado ao carrinho" })
-
     if (!soldout) {
       addToCart({
         id: id,
@@ -31,12 +29,12 @@ export function AddToCart({
         image: image,
         description: description,
       })
+
+      toast({ title: "Produto adicionado ao carrinho" })
     }
 
     if (soldout) {
-      toast({
-        title: "Produto indisponível no momento",
-      })
+      setModalEmailOpen(true)
     }
   }
 

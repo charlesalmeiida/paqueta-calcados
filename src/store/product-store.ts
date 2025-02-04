@@ -18,6 +18,8 @@ type CartStore = {
   cart: Item[]
   products: Item[]
   favorites: Item[]
+  modalEmailOpen: boolean
+  setModalEmailOpen: (open: boolean) => void
   fetchProducts: () => Promise<void>
   addToFavorites: (product: Item) => void
   removeFromFavorites: (productId: string) => void
@@ -34,6 +36,8 @@ export const useProductStore = create<CartStore>((set) => ({
   favorites: [],
   avaibleNumbers: Numbers,
   selectedNumbers: {},
+  modalEmailOpen: false,
+  setModalEmailOpen: (open: boolean) => set({ modalEmailOpen: open }),
   fetchProducts: async () => {
     const response = await fetch(
       "https://api.brchallenges.com/api/paqueta/shoes"

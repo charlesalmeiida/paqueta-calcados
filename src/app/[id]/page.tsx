@@ -8,6 +8,7 @@ import { RelatedProducts } from "@/components/product-page/related-products"
 import { Item } from "@/store/product-store"
 import Image from "next/image"
 import Link from "next/link"
+import { ModalEmail } from "@/components/product-page/modal-email"
 
 export default async function Product({
   params,
@@ -181,6 +182,7 @@ export default async function Product({
           <RelatedProducts />
         </div>
       </section>
+      <ModalEmail />
       <Footer />
     </>
   )
