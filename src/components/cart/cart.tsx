@@ -17,7 +17,7 @@ export function Cart() {
                 key={id}
                 image={image}
                 name={name}
-                id={id}
+                productId={id}
                 price={value}
               />
               <div className="w-full h-px bg-primary01 opacity-50"></div>

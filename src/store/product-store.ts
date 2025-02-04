@@ -24,12 +24,16 @@ type CartStore = {
   addToCart: (product: Item) => void
   removeFromCart: (productId: string) => void
   avaibleNumbers: number[]
+  selectedNumbers: { [productId: string]: number | null }
+  setSelectedNumber: (productId: string, number: number) => void
 }
 
 export const useProductStore = create<CartStore>((set) => ({
   cart: [],
   products: [],
   favorites: [],
+  avaibleNumbers: Numbers,
+  selectedNumbers: {},
   fetchProducts: async () => {
     const response = await fetch(
       "https://api.brchallenges.com/api/paqueta/shoes"
@@ -59,5 +63,11 @@ export const useProductStore = create<CartStore>((set) => ({
     set((state) => ({
       cart: state.cart.filter((item) => item.id !== productId),
     })),
-  avaibleNumbers: Numbers,
+  setSelectedNumber: (productId, number) =>
+    set((state) => ({
+      selectedNumbers: {
+        ...state.selectedNumbers,
+        [productId]: number,
+      },
+    })),
 }))

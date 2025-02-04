@@ -14,6 +14,8 @@ export function AddToCart({
   const { toast } = useToast()
   const { addToCart } = useProductStore()
 
+  const isSoldout = soldout ? "bg-primary01" : "bg-linear02"
+
   const handleCart = () => {
     toast({ title: "Produto adicionado ao carrinho" })
 
@@ -41,9 +43,9 @@ export function AddToCart({
   return (
     <button
       onClick={handleCart}
-      className="py-2 px-40 bg-linear02 rounded-sm uppercase font-poppins text-light text-lg transition-all hover:brightness-95"
+      className={`${isSoldout} py-2 px-40 rounded-sm uppercase font-poppins text-light text-lg transition-all hover:brightness-95`}
     >
-      COMPRAR
+      {soldout ? "Me avise quando chegar" : "Comprar"}
     </button>
   )
 }

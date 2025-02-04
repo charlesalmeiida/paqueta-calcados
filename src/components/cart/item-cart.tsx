@@ -1,14 +1,21 @@
+"use client"
+
 import Image from "next/image"
 import { RemoveFromCart } from "../button/remove-from-cart"
+import { useProductStore } from "@/store/product-store"
 
 interface ItemCartProps {
   image: string
   name: string
-  id: string
+  productId: string
   price: number
 }
 
-export function ItemCart({ image, name, id, price }: ItemCartProps) {
+export function ItemCart({ image, name, productId, price }: ItemCartProps) {
+  const { selectedNumbers } = useProductStore()
+  const selectedNumber =
+    selectedNumbers[productId] || "Nenhum tamanho selecionado"
+
   return (
     <div className="flex justify-between items-start">
       <div className="flex gap-16">
@@ -24,11 +31,11 @@ export function ItemCart({ image, name, id, price }: ItemCartProps) {
             {name}
           </h2>
           <span className="text-gray01 opacity-80 text-lg font-montserrat">
-            Código do produto: {id}
+            Código do produto: {productId}
           </span>
           <div className="mt-5 space-y-3 font-montserrat text-xl text-gray01">
             <p>
-              <strong>Numeração: </strong> 39
+              <strong>Numeração: </strong> {selectedNumber}
             </p>
             <p>
               <strong>Cor: </strong> Preto
@@ -42,7 +49,7 @@ export function ItemCart({ image, name, id, price }: ItemCartProps) {
           </div>
         </div>
       </div>
-      <RemoveFromCart productId={id} />
+      <RemoveFromCart productId={productId} />
     </div>
   )
 }

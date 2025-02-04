@@ -58,7 +58,7 @@ export default async function Product({
               soldout={soldout}
             />
             <div className="space-y-4">
-              <h3 className="text-gray text-[40px] font-semibold font-montserrat">
+              <h3 className="text-gray text-[40px] max-w-[547px] font-semibold font-montserrat">
                 {name.toLocaleUpperCase()}
               </h3>
               <span className="block text-lg text-gray01 opacity-80 font-montserrat">
@@ -66,26 +66,36 @@ export default async function Product({
               </span>
             </div>
             <div>
-              {totalDiscount > 0 && (
-                <div className="mt-12 flex items-center gap-6">
-                  <span className="block font-montserrat text-[22px] text-gray01 line-through">
-                    R${priceBeforeDiscount}
+              {soldout ? (
+                <div className="mt-8">
+                  <span className="text-[40px] mt-4 font-montserrat font-bold text-gray">
+                    Produto esgotado
                   </span>
-                  <span className="block bg-success text-light text-sm font-semibold font-montserrat px-4 rounded-sm">
-                    {totalDiscount}% de desconto
+                </div>
+              ) : (
+                <div>
+                  {totalDiscount > 0 && (
+                    <div className="mt-12 flex items-center gap-6">
+                      <span className="block font-montserrat text-[22px] text-gray01 line-through">
+                        R${priceBeforeDiscount}
+                      </span>
+                      <span className="block bg-success text-light text-sm font-semibold font-montserrat px-4 rounded-sm">
+                        {totalDiscount}% de desconto
+                      </span>
+                    </div>
+                  )}
+                  <h2 className="text-[40px] mt-4 font-montserrat font-bold text-gray">
+                    R$ {value}
+                  </h2>
+                  <span className="font-montserrat text-gray01 opacity-60 font-medium text-xl">
+                    ou {parcelas}x de R$
+                    {(value / parcelas).toFixed(2).replace(".", ",")}
                   </span>
                 </div>
               )}
-              <h2 className="text-[40px] mt-4 font-montserrat font-bold text-gray">
-                R$ {value}
-              </h2>
-              <span className="font-montserrat text-gray01 opacity-60 font-medium text-xl">
-                ou {parcelas}x de R$
-                {(value / parcelas).toFixed(2).replace(".", ",")}
-              </span>
             </div>
             <div className="mt-12">
-              <NumberShoesProduct />
+              <NumberShoesProduct productId={id} />
             </div>
             <button className="text-gray01 text-base font-montserrat opacity-60 font-bold mt-8">
               Guia de tamanhos
