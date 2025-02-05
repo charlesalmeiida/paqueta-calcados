@@ -1,4 +1,4 @@
-import { auth } from "@/lib/auth"
+import { auth, signOut } from "@/lib/auth"
 import { LinkUser } from "./link-user"
 
 export async function LogIn() {
@@ -6,7 +6,13 @@ export async function LogIn() {
 
   const user = session ? `Olá, ${session.user?.name}` : "Entrar"
 
-  const link = session ? "/" : "/entrar"
+  const link = session ? "" : "/entrar"
 
-  return <LinkUser link={link} user={user} />
+  async function logOutAction() {
+    "use server"
+
+    await signOut()
+  }
+
+  return <LinkUser lougOut={logOutAction} link={link} user={user} isLoggedIn={!!session} />
 }
