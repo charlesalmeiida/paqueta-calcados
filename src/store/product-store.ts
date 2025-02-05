@@ -28,16 +28,18 @@ type CartStore = {
   avaibleNumbers: number[]
   selectedNumbers: { [productId: string]: number | null }
   setSelectedNumber: (productId: string, number: number) => void
+  setFavorites: (favorites: Item[]) => void
+  setCart: (cart: Item[]) => void
 }
 
 export const useProductStore = create<CartStore>((set) => ({
-  cart: JSON.parse(sessionStorage.getItem("cart") || "[]"),
+  cart: [],
   products: [],
-  favorites: JSON.parse(sessionStorage.getItem("favorites") || "[]"),
+  favorites: [],
   avaibleNumbers: Numbers,
-  selectedNumbers: JSON.parse(
-    sessionStorage.getItem("selectedNumbers") || "{}"
-  ),
+  setFavorites: (favorites) => set({ favorites }),
+  setCart: (cart) => set({ cart }),
+  selectedNumbers: {},
   modalEmailOpen: false,
   setModalEmailOpen: (open: boolean) => set({ modalEmailOpen: open }),
   fetchProducts: async () => {
