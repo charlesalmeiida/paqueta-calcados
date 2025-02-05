@@ -31,11 +31,13 @@ type CartStore = {
 }
 
 export const useProductStore = create<CartStore>((set) => ({
-  cart: [],
+  cart: JSON.parse(sessionStorage.getItem("cart") || "[]"),
   products: [],
-  favorites: [],
+  favorites: JSON.parse(sessionStorage.getItem("favorites") || "[]"),
   avaibleNumbers: Numbers,
-  selectedNumbers: {},
+  selectedNumbers: JSON.parse(
+    sessionStorage.getItem("selectedNumbers") || "{}"
+  ),
   modalEmailOpen: false,
   setModalEmailOpen: (open: boolean) => set({ modalEmailOpen: open }),
   fetchProducts: async () => {
@@ -45,33 +47,47 @@ export const useProductStore = create<CartStore>((set) => ({
     const products = await response.json()
     set({ products })
   },
-  addToFavorites: (product: Item) =>
+  addToFavorites: (item: Item) => {
     set((state) => {
-      if (!state.favorites.find((item) => item.id === product.id)) {
-        return { favorites: [...state.favorites, product] }
-      }
-      return state
-    }),
-  removeFromFavorites: (productId: string) =>
-    set((state) => ({
-      favorites: state.favorites.filter((item) => item.id !== productId),
-    })),
-  addToCart: (product: Item) =>
+      const updatedFavorites = [...state.favorites, item]
+      sessionStorage.setItem("favorites", JSON.stringify(updatedFavorites))
+      return { favorites: updatedFavorites }
+    })
+  },
+  removeFromFavorites: (itemId: string) => {
     set((state) => {
-      if (!state.cart.find((item) => item.id === product.id)) {
-        return { cart: [...state.cart, product] }
-      }
-      return state
-    }),
-  removeFromCart: (productId: string) =>
-    set((state) => ({
-      cart: state.cart.filter((item) => item.id !== productId),
-    })),
-  setSelectedNumber: (productId, number) =>
-    set((state) => ({
-      selectedNumbers: {
+      const updatedFavorites = state.favorites.filter(
+        (item) => item.id !== itemId
+      )
+      sessionStorage.setItem("favorites", JSON.stringify(updatedFavorites))
+      return { favorites: updatedFavorites }
+    })
+  },
+  addToCart: (item: Item) => {
+    set((state) => {
+      const updatedCart = [...state.cart, item]
+      sessionStorage.setItem("cart", JSON.stringify(updatedCart))
+      return { cart: updatedCart }
+    })
+  },
+  removeFromCart: (itemId: string) => {
+    set((state) => {
+      const updatedCart = state.cart.filter((item) => item.id !== itemId)
+      sessionStorage.setItem("cart", JSON.stringify(updatedCart))
+      return { cart: updatedCart }
+    })
+  },
+  setSelectedNumber: (productId, number) => {
+    set((state) => {
+      const updatedSelectedNumbers = {
         ...state.selectedNumbers,
         [productId]: number,
-      },
-    })),
+      }
+      sessionStorage.setItem(
+        "selectedNumbers",
+        JSON.stringify(updatedSelectedNumbers)
+      )
+      return { selectedNumbers: updatedSelectedNumbers }
+    })
+  },
 }))

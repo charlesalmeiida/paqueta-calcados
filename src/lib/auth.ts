@@ -3,6 +3,15 @@ import Google from "next-auth/providers/google"
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [Google],
+  session: {
+    strategy: "jwt",
+  },
+  callbacks: {
+    async session({ session, token }) {
+      session.userId = token.sub as string
+      return session
+    },
+  },
 })
 
 export async function signInWithGoogle() {
