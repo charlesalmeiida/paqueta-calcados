@@ -1,20 +1,12 @@
-import Image from "next/image"
-import { redirect } from "next/navigation"
+import { auth } from "@/lib/auth"
+import { LinkUser } from "./link-user"
 
-const goToLogin = () => {
-  redirect("/entrar")
-}
+export async function LogIn() {
+  const session = await auth()
 
-export function LogIn() {
-  return (
-    <button className="flex items-end gap-3" onClick={goToLogin}>
-      <Image
-        src={"/svg/icon-login.svg"}
-        width={28}
-        height={28}
-        alt="Ícone de login"
-      />
-      <span className="text-gray01 text-sm font-poppins hover:text-primary01">Entrar</span>
-    </button>
-  )
+  const user = session ? `Olá, ${session.user?.name}` : "Entrar"
+
+  const link = session ? "/" : "/entrar"
+
+  return <LinkUser link={link} user={user} />
 }

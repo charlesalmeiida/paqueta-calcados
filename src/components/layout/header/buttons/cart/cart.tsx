@@ -1,3 +1,5 @@
+"use client"
+
 import { useProductStore } from "@/store/product-store"
 import Image from "next/image"
 import { redirect } from "next/navigation"
