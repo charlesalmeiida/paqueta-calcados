@@ -9,6 +9,7 @@ import { Item } from "@/store/product-store"
 import Image from "next/image"
 import Link from "next/link"
 import { ModalEmail } from "@/components/product-page/modal-email"
+import { SizesGuide } from "@/components/button/sizes-guide"
 
 export default async function Product({
   params,
@@ -95,9 +96,7 @@ export default async function Product({
                   <div className="mt-12">
                     <NumberShoesProduct productId={id} />
                   </div>
-                  <button className="text-gray01 text-base font-montserrat opacity-60 font-bold mt-8">
-                    Guia de tamanhos
-                  </button>
+                  <SizesGuide />
                 </div>
               )}
             </div>
