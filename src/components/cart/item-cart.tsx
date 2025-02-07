@@ -17,8 +17,8 @@ export function ItemCart({ image, name, productId, price }: ItemCartProps) {
     selectedNumbers[productId] || "Nenhum tamanho selecionado"
 
   return (
-    <div className="flex justify-between items-start">
-      <div className="flex gap-16">
+    <div className="flex flex-col lg:flex-row gap-10 justify-between items-start">
+      <div className="flex flex-col lg:flex-row lg:gap-16">
         <Image
           src={image}
           width={219}
@@ -27,7 +27,7 @@ export function ItemCart({ image, name, productId, price }: ItemCartProps) {
           className="flex-1"
         />
         <div>
-          <h2 className="text-[38px] uppercase text-gray font-bold font-montserrat">
+          <h2 className="text-2xl lg:text-[38px] uppercase text-gray font-bold font-montserrat">
             {name}
           </h2>
           <span className="text-gray01 opacity-80 text-lg font-montserrat">

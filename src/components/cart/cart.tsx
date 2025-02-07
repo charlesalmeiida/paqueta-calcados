@@ -10,7 +10,7 @@ export function Cart() {
   return (
     <div>
       {cart.length > 0 && (
-        <div className="flex flex-col gap-16">
+        <div className="flex flex-col gap-8 lg:gap-16">
           {cart.map(({ id, image, name, price: { value } }) => (
             <>
               <ItemCart
