@@ -5,7 +5,7 @@ export function ModalFavorites() {
   const { favorites } = useProductStore()
 
   return (
-    <div className="absolute top-20 right-32 bg-light rounded-sm shadow-lg w-[400px] p-6">
+    <div className="bg-light rounded-sm shadow-lg w-full md:w-[400px] p-6 md:absolute md:top-20 md:right-32">
       <h3 className="text-xl font-semibold text-gray-700 mb-4">Favoritos</h3>
 
       {favorites.length > 0 ? (
