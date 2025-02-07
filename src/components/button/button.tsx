@@ -1,3 +1,4 @@
+import { ComponentProps } from "react"
 import { tv } from "tailwind-variants"
 
 const button = tv({
@@ -10,7 +11,7 @@ const button = tv({
   },
 })
 
-interface ButtonProps {
+interface ButtonProps extends ComponentProps<"button"> {
   children: React.ReactNode
   weight?: "normal" | "bold"
 }

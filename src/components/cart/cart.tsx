@@ -23,7 +23,9 @@ export function Cart() {
               <div className="w-full h-px bg-primary01 opacity-50"></div>
             </>
           ))}
-          <p>Valor total: R$ {totalPrice.toLocaleString("pt-BR")}</p>
+          <p className="text-[28px] text-gray font-bold font-montserrat">
+            Valor total: R$ {totalPrice.toLocaleString("pt-BR")}
+          </p>
         </div>
       )}
     </div>

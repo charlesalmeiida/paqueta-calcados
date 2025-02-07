@@ -4,9 +4,9 @@ import Link from "next/link"
 
 export function Footer() {
   return (
-    <footer className="pt-16">
+    <footer className="pt-14 lg:pt-16">
       <div className="container">
-        <div className="flex justify-between items-start">
+        <div className="flex flex-wrap gap-4 lg:gap-0 justify-between items-start">
           <div className="space-y-3">
             <h6 className="text-lg font-bold text-gray01">
               {footerNav[0].title}
@@ -149,8 +149,10 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-gray01 py-5 flex items-center justify-center gap-7 mt-16">
-        <strong className="text-xl font-medium font-montserrat text-light">UMA EMPRESA DO GRUPO</strong>
+      <div className="bg-gray01 py-5 flex flex-col lg:flex-row items-center justify-center gap-7 mt-16">
+        <strong className="text-xl font-medium font-montserrat text-light">
+          UMA EMPRESA DO GRUPO
+        </strong>
         <Image
           src={"/svg/logo-paqueta-company.svg"}
           width={265}

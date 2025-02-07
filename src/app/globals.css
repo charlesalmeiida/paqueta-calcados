@@ -12,10 +12,22 @@ h4 {
 h1 {
   font-size: 80px;
   font-weight: 600;
+  @media (max-width: 768px) {
+    font-size: 56px;
+  }
+  @media (max-width: 560px) {
+    font-size: 40px;
+  }
 }
 
 h2 {
   font-size: 60px;
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
+  @media (max-width: 560px) {
+    font-size: 32px;
+  }
 }
 
 h3 {
@@ -36,6 +48,9 @@ h6 {
 h5 {
   font-size: 22px;
   line-height: 36px;
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 }
 
 h6 {
@@ -112,5 +127,3 @@ h6 {
     @apply bg-background text-foreground;
   }
 }
-
-

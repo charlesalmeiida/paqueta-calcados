@@ -1,9 +1,10 @@
 interface CheckboxProps {
   children: React.ReactNode
   gender: "male" | "female"
+  required?: boolean
 }
 
-export function Checkbox({ children, gender }: CheckboxProps) {
+export function Checkbox({ children, gender, required }: CheckboxProps) {
   return (
     <div className="flex items-center gap-3">
       <input
@@ -11,6 +12,7 @@ export function Checkbox({ children, gender }: CheckboxProps) {
         type="checkbox"
         name="checkbox"
         id={gender}
+        required={required}
       />
       <label htmlFor={gender} className="text-light font-poppins text-lg">
         {children}

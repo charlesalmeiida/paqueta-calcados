@@ -26,6 +26,23 @@ export function SlideProducts() {
             el: ".custom-pagination",
           }}
           modules={[Pagination]}
+          breakpoints={{
+            0: {
+              slidesPerView: 1.2,
+            },
+            640: {
+              slidesPerView: 1.8,
+            },
+            768: {
+              slidesPerView: 2.5,
+            },
+            1024: {
+              slidesPerView: 3.2,
+            },
+            1280: {
+              slidesPerView: 4.5,
+            },
+          }}
           className="mySwiper"
         >
           {products

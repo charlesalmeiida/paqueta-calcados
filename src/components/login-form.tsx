@@ -32,7 +32,7 @@ export async function LoginForm({
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
         <CardHeader className="text-center">
-          <CardTitle className="text-xl">Acesse com seu login</CardTitle>
+          <CardTitle className="text-xl">Acesse a sua conta</CardTitle>
           <CardDescription>
             Entre com a sua conta do Google, outras formas de login ainda estão
             sendo implementadas.
