@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { RemoveFromCart } from "../button/remove-from-cart"
 import { useProductStore } from "@/store/product-store"
+import { QuantitySelector } from "./quantity-selector"
 
 interface ItemCartProps {
   image: string
@@ -12,9 +13,18 @@ interface ItemCartProps {
 }
 
 export function ItemCart({ image, name, productId, price }: ItemCartProps) {
-  const { selectedNumbers } = useProductStore()
+  const { selectedNumbers, cart } = useProductStore()
+
   const selectedNumber =
     selectedNumbers[productId] || "Nenhum tamanho selecionado"
+
+  const productInCart = cart.find((item) => item.id === productId)
+  const quantity = productInCart ? productInCart.quantity : 1
+
+  const priceFormatted = (price * quantity).toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  })
 
   return (
     <div className="flex flex-col lg:flex-row gap-10 justify-between items-start">
@@ -41,10 +51,11 @@ export function ItemCart({ image, name, productId, price }: ItemCartProps) {
               <strong>Cor: </strong> Preto
             </p>
             <p>
-              <strong>Quantidade: </strong> 1
+              <strong>Quantidade: </strong> {quantity}
+              <QuantitySelector productId={productId} />
             </p>
             <p>
-              <strong>Preço: </strong> R$ {price.toLocaleString("pt-BR")}
+              <strong>Preço Total: </strong> {priceFormatted}
             </p>
           </div>
         </div>
