@@ -11,7 +11,7 @@ interface ModalGuideProps {
 export function ModalGuide({ modalOpen, closeModal }: ModalGuideProps) {
   return (
     <Dialog open={modalOpen}>
-      <DialogContent className="max-w-fit p-0">
+      <DialogContent className="w-full lg:max-w-fit p-0">
         <DialogTitle className="hidden">Guia de Tamanhos</DialogTitle>
         <button onClick={closeModal} className="absolute top-4 right-4">
           <X />

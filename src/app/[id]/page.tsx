@@ -52,6 +52,7 @@ export default async function Product({
           />
           <div className="container lg:w-1/2">
             <HandleFavorites
+              quantity={1}
               id={id}
               name={name}
               image={image}
@@ -101,6 +102,7 @@ export default async function Product({
             </div>
             <div className="mt-6 lg:mt-14">
               <AddToCart
+                quantity={1}
                 description={description}
                 id={id}
                 name={name}

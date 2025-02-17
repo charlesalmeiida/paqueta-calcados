@@ -13,6 +13,7 @@ interface HandleFavoritesProps {
     value: number
   }
   soldout: boolean
+  quantity: number
 }
 
 export function HandleFavorites({
@@ -21,6 +22,7 @@ export function HandleFavorites({
   image,
   price: { value },
   soldout,
+  quantity,
 }: HandleFavoritesProps) {
   const { addToFavorites, removeFromFavorites, favorites } = useProductStore()
   const [isFavorited, setIsFavorited] = useState(false)
@@ -46,6 +48,7 @@ export function HandleFavorites({
         },
         soldout,
         description: "",
+        quantity,
       })
 
       toast({ title: "Produto adicionado aos favoritos!" })

@@ -10,6 +10,7 @@ export function AddToCart({
   price: { value, discount },
   image,
   description,
+  quantity,
 }: Item) {
   const { toast } = useToast()
   const { addToCart, setModalEmailOpen, selectedNumbers } = useProductStore()
@@ -37,6 +38,7 @@ export function AddToCart({
         },
         image: image,
         description: description,
+        quantity: quantity,
       })
 
       toast({ title: "Produto adicionado ao carrinho" })

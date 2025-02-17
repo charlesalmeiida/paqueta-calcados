@@ -1,4 +1,3 @@
-import { Footer } from "@/components/layout/footer/footer"
 import { Topbar } from "@/components/layout/header/topbar/topbar"
 import { LoginForm } from "@/components/login-form"
 import Image from "next/image"
@@ -23,7 +22,6 @@ export default function SignInPage() {
           <LoginForm />
         </div>
       </div>
-      <Footer />
     </>
   )
 }
