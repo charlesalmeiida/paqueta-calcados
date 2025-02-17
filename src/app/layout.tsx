@@ -3,6 +3,7 @@ import "./globals.css"
 import { montserrat, poppins } from "@/utils/fonts"
 import { Toaster } from "@/components/ui/toaster"
 import SyncSessionStorage from "@/components/sync-session-storage"
+import { Footer } from "@/components/layout/footer/footer"
 
 export const metadata: Metadata = {
   title: "Paquetá Calçados",
@@ -20,6 +21,7 @@ export default function RootLayout({
         <SyncSessionStorage />
         {children}
         <Toaster />
+        <Footer />
       </body>
     </html>
   )

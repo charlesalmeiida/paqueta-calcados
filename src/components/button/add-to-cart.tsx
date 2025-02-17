@@ -50,7 +50,7 @@ export function AddToCart({
   return (
     <button
       onClick={handleCart}
-      className={`${isSoldout} py-2 px-40 rounded-sm uppercase font-poppins text-light text-lg transition-all hover:brightness-95`}
+      className={`${isSoldout} py-2 w-full lg:w-fit lg:px-40 rounded-sm uppercase font-poppins text-light text-lg transition-all hover:brightness-95`}
     >
       {soldout ? "Me avise quando chegar" : "Comprar"}
     </button>

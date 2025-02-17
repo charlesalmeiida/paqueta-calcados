@@ -1,5 +1,6 @@
 "use client"
 
+import { useToast } from "@/hooks/use-toast"
 import { useProductStore } from "@/store/product-store"
 import Image from "next/image"
 import { useState } from "react"
@@ -23,6 +24,7 @@ export function HandleFavorites({
 }: HandleFavoritesProps) {
   const { addToFavorites, removeFromFavorites, favorites } = useProductStore()
   const [isFavorited, setIsFavorited] = useState(false)
+  const { toast } = useToast()
 
   const src = favorites.find((item) => item.id === id)
     ? "/svg/icon-fav-product-fill.svg"
@@ -31,6 +33,8 @@ export function HandleFavorites({
   const handleFavorites = () => {
     if (favorites.find((item) => item.id === id)) {
       removeFromFavorites(id)
+
+      toast({ title: "Produto removido dos favoritos!" })
     } else {
       addToFavorites({
         id,
@@ -43,6 +47,8 @@ export function HandleFavorites({
         soldout,
         description: "",
       })
+
+      toast({ title: "Produto adicionado aos favoritos!" })
     }
 
     setIsFavorited(!isFavorited)

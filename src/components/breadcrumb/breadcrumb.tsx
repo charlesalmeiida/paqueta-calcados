@@ -16,7 +16,7 @@ export function Breadcrumb({ pageName }: BreadcrumbProps) {
       </Link>
       <Image src={"/svg/chevron-right.svg"} width={5} height={9} alt="Seta" />
       <span>
-        <span className="font-medium text-lg font-montserrat text-gray01 border-b border-primary01">
+        <span className="font-medium text-lg line-clamp-1 font-montserrat text-gray01 border-b border-primary01">
           {pageName}
         </span>
       </span>

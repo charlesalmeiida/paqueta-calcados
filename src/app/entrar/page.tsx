@@ -18,7 +18,7 @@ export default function SignInPage() {
           />
         </Link>
       </div>
-      <div className="flex flex-col items-center justify-center gap-6 bg-muted  md:p-10">
+      <div className="flex flex-col items-center justify-center p-4 gap-6 bg-muted  md:p-10">
         <div className="flex w-full max-w-sm flex-col gap-6 mt-20">
           <LoginForm />
         </div>

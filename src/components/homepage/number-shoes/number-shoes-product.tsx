@@ -14,7 +14,7 @@ export function NumberShoesProduct({ productId }: { productId: string }) {
         Escolha a numeração:
       </span>
       <div className="mt-5">
-        <ul className="flex gap-8 items-center">
+        <ul className="flex gap-8 justify-between lg:justify-start items-center overflow-x-auto whitespace-nowrap">
           {avaibleNumbers.map((number) => (
             <li key={number}>
               <button

@@ -2,14 +2,13 @@ import { Breadcrumb } from "@/components/breadcrumb/breadcrumb"
 import { AddToCart } from "@/components/button/add-to-cart"
 import { HandleFavorites } from "@/components/button/handle-favorites"
 import { NumberShoesProduct } from "@/components/homepage/number-shoes/number-shoes-product"
-import { Footer } from "@/components/layout/footer/footer"
 import { Header } from "@/components/layout/header/header"
 import { RelatedProducts } from "@/components/product-page/related-products"
 import { Item } from "@/store/product-store"
 import Image from "next/image"
-import Link from "next/link"
 import { ModalEmail } from "@/components/product-page/modal-email"
 import { SizesGuide } from "@/components/button/sizes-guide"
+import { ShareOnSocials } from "@/components/product-page/share-on-socials"
 
 export default async function Product({
   params,
@@ -41,17 +40,17 @@ export default async function Product({
   return (
     <>
       <Header />
-      <section className="container py-20">
+      <section className="container py-14 lg:py-20">
         <Breadcrumb pageName={name} />
-        <div className="flex items-start mt-14">
+        <div className="flex flex-col lg:flex-row items-start mt-14">
           <Image
-            className="-mt-40 -ml-20"
+            className="-mt-20 lg:-mt-40 lg:-ml-20"
             src={image}
             width={835}
             height={835}
             alt={`Imagem do produto ${name}`}
           />
-          <div>
+          <div className="container lg:w-1/2">
             <HandleFavorites
               id={id}
               name={name}
@@ -60,7 +59,7 @@ export default async function Product({
               soldout={soldout}
             />
             <div className="space-y-4">
-              <h3 className="text-gray text-[40px] max-w-[547px] font-semibold font-montserrat">
+              <h3 className="text-gray text-3xl lg:text-[40px] max-w-[547px] font-semibold font-montserrat">
                 {name.toLocaleUpperCase()}
               </h3>
               <span className="block text-lg text-gray01 opacity-80 font-montserrat">
@@ -100,7 +99,7 @@ export default async function Product({
                 </div>
               )}
             </div>
-            <div className="mt-14">
+            <div className="mt-6 lg:mt-14">
               <AddToCart
                 description={description}
                 id={id}
@@ -112,77 +111,20 @@ export default async function Product({
             </div>
           </div>
         </div>
-        <div className="-mt-20">
-          <span className="text-lg font-montserrat text-gray01 opacity-80">
-            Compartilhe
-          </span>
-          <ul className="flex items-center gap-4 mt-3">
-            <li>
-              <Link href={"/"}>
-                <Image
-                  src={"/svg/logo-instagram.svg"}
-                  width={24}
-                  height={24}
-                  alt="Logo Instagram"
-                />
-              </Link>
-            </li>
-            <li>
-              <Link href={"/"}>
-                <Image
-                  src={"/svg/logo-facebook.svg"}
-                  width={14}
-                  height={25}
-                  alt="Logo Facebook"
-                />
-              </Link>
-            </li>
-            <li>
-              <Link href={"/"}>
-                <Image
-                  src={"/svg/logo-twitter.svg"}
-                  width={28}
-                  height={22}
-                  alt="Logo Twitter"
-                />
-              </Link>
-            </li>
-            <li>
-              <Link href={"/"}>
-                <Image
-                  src={"/svg/logo-youtube.svg"}
-                  width={29}
-                  height={20}
-                  alt="Logo YouTube"
-                />
-              </Link>
-            </li>
-            <li>
-              <Link href={"/"}>
-                <Image
-                  src={"/svg/logo-pinterest.svg"}
-                  width={22}
-                  height={25}
-                  alt="Logo Pinterest"
-                />
-              </Link>
-            </li>
-          </ul>
-        </div>
+        <ShareOnSocials />
         <div className="mt-14">
-          <h4 className="text-gray font-montserrat text-[40px] font-semibold">
+          <h4 className="text-gray font-montserrat text-3xl lg:text-[40px] font-semibold">
             DESCRIÇÃO DO PRODUTO
           </h4>
-          <p className="font-montserrat mt-4 text-gray01 text-[22px] font-light leading-10 max-w-6xl">
+          <p className="font-montserrat mt-4 text-gray01 text-lg lg:text-[22px] font-light lg:leading-10 max-w-6xl">
             {description}
           </p>
         </div>
-        <div className="mt-52">
+        <div className="mt-10 lg:mt-52">
           <RelatedProducts />
         </div>
       </section>
       <ModalEmail />
-      <Footer />
     </>
   )
 }
