@@ -36,6 +36,7 @@ export function CardItem({ name, price, image, id, soldout }: CardItemProps) {
       },
       soldout,
       description: "",
+      quantity: 1,
     })
 
     if (favorites.find((item) => item.id === id)) {

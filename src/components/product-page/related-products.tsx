@@ -1,15 +1,16 @@
 "use client"
 
 import { useProductStore } from "@/store/product-store"
-import { useEffect } from "react"
+
 import { CardItem } from "../homepage/products/card-item/card-item"
+import { useEffect } from "react"
 
 export function RelatedProducts() {
   const { products, fetchProducts } = useProductStore()
 
   useEffect(() => {
     fetchProducts()
-  }, [products])
+  }, [fetchProducts])
 
   return (
     <div>
@@ -17,17 +18,19 @@ export function RelatedProducts() {
         TALVEZ POSSA LHE INTERESSAR
       </h3>
       <div className="flex items-center justify-between mt-8 overflow-x-auto whitespace-nowrap lg:overflow-x-clip lg:whitespace-normal">
-        {products.slice(8, 12).map((product) => (
-          <div key={product.id}>
-            <CardItem
-              soldout={product.soldout}
-              id={product.id}
-              image={product.image}
-              name={product.name}
-              price={product.price.value}
-            />
-          </div>
-        ))}
+        {products
+          .slice(8, 12)
+          .map(({ id, soldout, image, name, price: { value } }) => (
+            <div key={id}>
+              <CardItem
+                soldout={soldout}
+                id={id}
+                image={image}
+                name={name}
+                price={value}
+              />
+            </div>
+          ))}
       </div>
     </div>
   )

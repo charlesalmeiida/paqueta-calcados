@@ -5,15 +5,15 @@ import "swiper/css"
 import "swiper/css/pagination"
 import { Pagination } from "swiper/modules"
 import { CardItem } from "../card-item/card-item"
-import { useEffect } from "react"
 import { useProductStore } from "@/store/product-store"
+import { useEffect } from "react"
 
 export function SlideProducts() {
   const { products, fetchProducts } = useProductStore()
 
   useEffect(() => {
     fetchProducts()
-  }, [products])
+  }, [fetchProducts])
 
   return (
     <>
