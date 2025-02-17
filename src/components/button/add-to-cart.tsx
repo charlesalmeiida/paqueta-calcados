@@ -12,11 +12,20 @@ export function AddToCart({
   description,
 }: Item) {
   const { toast } = useToast()
-  const { addToCart, setModalEmailOpen } = useProductStore()
+  const { addToCart, setModalEmailOpen, selectedNumbers } = useProductStore()
 
   const isSoldout = soldout ? "bg-primary01" : "bg-linear02"
 
   const handleCart = () => {
+    if (selectedNumbers[id] === undefined) {
+      toast({
+        title: "Selecione o tamanho",
+        variant: "destructive",
+      })
+
+      return
+    }
+
     if (!soldout) {
       addToCart({
         id: id,
