@@ -18,6 +18,10 @@ export function AddToCart({
   const isSoldout = soldout ? "bg-primary01" : "bg-linear02"
 
   const handleCart = () => {
+    if (soldout) {
+      setModalEmailOpen(true)
+    }
+
     if (selectedNumbers[id] === undefined) {
       toast({
         title: "Selecione o tamanho",
@@ -42,10 +46,6 @@ export function AddToCart({
       })
 
       toast({ title: "Produto adicionado ao carrinho" })
-    }
-
-    if (soldout) {
-      setModalEmailOpen(true)
     }
   }
 
