@@ -15,11 +15,13 @@ export function AddToCart({
   const { toast } = useToast()
   const { addToCart, setModalEmailOpen, selectedNumbers } = useProductStore()
 
-  const isSoldout = soldout ? "bg-primary01" : "bg-linear02"
+  const isSoldout = soldout ? "bg-primary01 px-20" : "bg-linear02 px-40"
 
   const handleCart = () => {
     if (soldout) {
       setModalEmailOpen(true)
+
+      return
     }
 
     if (selectedNumbers[id] === undefined) {
@@ -52,7 +54,7 @@ export function AddToCart({
   return (
     <button
       onClick={handleCart}
-      className={`${isSoldout} py-2 w-full lg:w-fit lg:px-40 rounded-sm uppercase font-poppins text-light text-lg transition-all hover:brightness-95`}
+      className={`${isSoldout} py-2 w-full lg:w-fit  rounded-sm uppercase font-poppins text-light text-lg transition-all hover:brightness-95`}
     >
       {soldout ? "Me avise quando chegar" : "Comprar"}
     </button>
