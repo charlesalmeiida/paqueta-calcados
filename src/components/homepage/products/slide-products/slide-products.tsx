@@ -40,6 +40,9 @@ export function SlideProducts() {
               slidesPerView: 3.2,
             },
             1280: {
+              slidesPerView: 4,
+            },
+            1536: {
               slidesPerView: 4.5,
             },
           }}
