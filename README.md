@@ -53,7 +53,7 @@ O objetivo foi construir uma interface responsiva e funcional baseada no design 
 
 💻 **Clone o repositório**  
 ```sh
-git clone https://github.com/seu-usuario/paqueta-calcados.git
+git clone https://github.com/charlesalmeiida/paqueta-calcados.git
 ```
 
 📂 **Entre no diretório**
@@ -73,6 +73,6 @@ yarn install
 🔗 **O projeto estará disponível em http://localhost:3000**
 
 📝 **Licença**
-Esse projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+Esse projeto está sob a licença MIT. 
 
 📌 Obs.: Este projeto tem foco exclusivamente educacional e não possui vínculo com a empresa Paquetá Calçados.
